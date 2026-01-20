@@ -18,7 +18,7 @@ class Custometextforemfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      cursorColor: Colorsmanager.whiteScreen,
+      cursorColor: Colorsmanager.darkpinkScreen,
       decoration: InputDecoration(
         label: Text(label),
         labelStyle: GoogleFonts.poppins(color: color,fontSize: 16.sp,fontWeight: FontWeight.w700),
@@ -28,15 +28,15 @@ class Custometextforemfield extends StatelessWidget {
         prefixIcon: prefixIcon!=null ? Icon(prefixIcon,color: color,) : null,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colorsmanager.whiteScaffoldScreen),
+          borderSide: BorderSide(color: Colorsmanager.yellowScreen),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colorsmanager.whiteScreen, width: 1.5),
+          borderSide: BorderSide(color: Colorsmanager.transparentText, width: 1.5),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colorsmanager.blackScreen, width: 2),
+          borderSide: BorderSide(color: Colorsmanager.coffeeCheckout, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
@@ -47,7 +47,7 @@ class Custometextforemfield extends StatelessWidget {
           borderSide: BorderSide(color: Colors.red, width: 2),
         ),
         filled: true,
-        fillColor: Colorsmanager.whiteScreen.withOpacity(0.15),
+        fillColor: Colorsmanager.whiteScreen.withOpacity(0.45),
       ),
     );
   }

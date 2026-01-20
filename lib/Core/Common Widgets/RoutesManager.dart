@@ -1,3 +1,4 @@
+import 'package:dokkanaproject/MainFeatures/Auth/LoginScreen.dart';
 import 'package:dokkanaproject/MainFeatures/Auth/Register.dart';
 import 'package:flutter/cupertino.dart';
 class RoutesManager {
@@ -13,7 +14,9 @@ class RoutesManager {
   static Route<dynamic>? getRoute(RouteSettings settings) {
     switch (settings.name) {
       case registerScreen:
-        return CupertinoPageRoute(builder: (_) =>  RegisterScreen());
+        return CupertinoPageRoute(builder: (_) => RegisterScreen());
+      case loginScreen:
+        return CupertinoPageRoute(builder: (_) => Loginscreen());
     }
   }
 }
