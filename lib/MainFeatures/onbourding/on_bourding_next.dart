@@ -34,7 +34,7 @@ class OnBourdingNext extends StatelessWidget {
                   Navigator.pushNamed(context, RoutesManager.onboardingLets);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colorsmanager.whiteScaffoldScreen,
+                  backgroundColor: Colorsmanager.whiteCoffee,
                   padding: EdgeInsets.symmetric(
                     horizontal: 90.w,
                     vertical: 8.h,

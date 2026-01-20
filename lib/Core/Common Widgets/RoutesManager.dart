@@ -2,6 +2,7 @@ import 'package:dokkanaproject/MainFeatures/Auth/Register.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_lets.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_next.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class RoutesManager {
   static const String onboardingNext = '/onboardingnext';
@@ -17,11 +18,11 @@ class RoutesManager {
   static Route<dynamic>? getRoute(RouteSettings settings) {
     switch (settings.name) {
       case registerScreen:
-        return CupertinoPageRoute(builder: (_) => RegisterScreen());
+        return MaterialPageRoute(builder: (_) => RegisterScreen());
       case onboardingNext:
-        return CupertinoPageRoute(builder: (_) => OnBourdingNext());
+        return MaterialPageRoute(builder: (_) => OnBourdingNext());
       case onboardingLets:
-        return CupertinoPageRoute(builder: (_) => OnBourdingLets());
+        return MaterialPageRoute(builder: (_) => OnBourdingLets());
     }
   }
 }

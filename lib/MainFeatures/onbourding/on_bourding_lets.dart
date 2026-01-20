@@ -34,7 +34,7 @@ class OnBourdingLets extends StatelessWidget {
                   Navigator.pushNamed(context, RoutesManager.registerScreen);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colorsmanager.whiteScaffoldScreen,
+                  backgroundColor: Colorsmanager.White,
                   padding: EdgeInsets.symmetric(
                     horizontal: 90.w,
                     vertical: 8.h,
@@ -61,7 +61,7 @@ class OnBourdingLets extends StatelessWidget {
                   Navigator.pushNamed(context, RoutesManager.registerScreen);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colorsmanager.whiteScaffoldScreen,
+                  backgroundColor: Colorsmanager.whiteCoffee,
                   padding: EdgeInsets.symmetric(
                     horizontal: 90.w,
                     vertical: 8.h,
