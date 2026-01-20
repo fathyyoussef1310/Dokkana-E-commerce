@@ -1,3 +1,4 @@
+import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_next.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,21 +8,21 @@ import 'MainFeatures/Auth/Register.dart';
 void main() {
   runApp(const MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-
     return ScreenUtilInit(
       designSize: const Size(393, 852),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            onGenerateRoute: RoutesManager.getRoute,
+          debugShowCheckedModeBanner: false,
+          onGenerateRoute: RoutesManager.getRoute,
           themeMode: ThemeMode.light,
-          home: RegisterScreen(),
+          home: OnBourdingNext(),
         );
       },
     );
