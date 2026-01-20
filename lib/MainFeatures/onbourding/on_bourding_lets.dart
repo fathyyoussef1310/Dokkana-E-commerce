@@ -53,7 +53,7 @@ class OnBourdingLets extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 8.h),
+            SizedBox(height: 8.h,),
             Opacity(
               opacity: 0.9,
               child: ElevatedButton(
