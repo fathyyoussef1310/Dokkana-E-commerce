@@ -18,7 +18,7 @@ class Custometextforemfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      cursorColor: Colorsmanager.darkpinkScreen,
+      cursorColor: Colorsmanager.darkpink,
       decoration: InputDecoration(
         label: Text(label),
         labelStyle: GoogleFonts.poppins(color: color,fontSize: 16.sp,fontWeight: FontWeight.w700),
@@ -28,7 +28,7 @@ class Custometextforemfield extends StatelessWidget {
         prefixIcon: prefixIcon!=null ? Icon(prefixIcon,color: color,) : null,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colorsmanager.yellowScreen),
+          borderSide: BorderSide(color: Colorsmanager.yellow),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
@@ -47,7 +47,7 @@ class Custometextforemfield extends StatelessWidget {
           borderSide: BorderSide(color: Colors.red, width: 2),
         ),
         filled: true,
-        fillColor: Colorsmanager.whiteScreen.withOpacity(0.45),
+        fillColor: Colorsmanager.White.withOpacity(0.45),
       ),
     );
   }

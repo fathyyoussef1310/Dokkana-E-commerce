@@ -7,11 +7,11 @@ import '../Core/Common Widgets/ColorsManager.dart';
 
 abstract class ThemeManager {
   static final ThemeData light = ThemeData(
-    scaffoldBackgroundColor: Colorsmanager.whiteScaffoldScreen,
+    scaffoldBackgroundColor: Colorsmanager.White,
 
     textTheme: TextTheme(
       bodyLarge: GoogleFonts.inter(
-        color: Colorsmanager.whiteScreen,
+        color: Colorsmanager.White,
         fontSize: 18,
         fontWeight: FontWeight.bold,
       ),
@@ -26,12 +26,12 @@ abstract class ThemeManager {
         fontWeight: FontWeight.w300,
       ),
       displayLarge: GoogleFonts.inter(
-        color: Colorsmanager.whiteScreen,
+        color: Colorsmanager.White,
         fontSize: 14,
         fontWeight: FontWeight.w600,
       ),
       headlineLarge: GoogleFonts.inter(
-        color: Colorsmanager.whiteScreen,
+        color: Colorsmanager.White,
         fontSize: 30,
         fontWeight: FontWeight.bold,
       ),

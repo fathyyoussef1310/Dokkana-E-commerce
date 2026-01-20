@@ -27,13 +27,13 @@ class Loginscreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text("Dokkan",style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                  color: Colorsmanager.whiteScreen,
+                  color: Colorsmanager.White,
                   fontSize: 50.sp,
                   fontWeight: FontWeight.bold,
                 ),),
                 SizedBox(height: 40.h,),
                 Text("Sign In",style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    color: Colorsmanager.whiteScreen
+                    color: Colorsmanager.White
                 ),),
                 SizedBox(height:30.h),
                 Custometextforemfield(hint: "Email", label: "Email", color: Colorsmanager.blackScreen),
@@ -44,10 +44,10 @@ class Loginscreen extends StatelessWidget {
                   alignment: Alignment.centerRight,
                   child: CustomeTextButton(title: "Forget Password", onPressed: (){
                     Navigator.pushNamed(context, RoutesManager.registerScreen);
-                  }, size: 19.sp,color: Colorsmanager.whiteScreen,),
+                  }, size: 19.sp,color: Colorsmanager.White,),
                 ),
                 SizedBox(height: 20.h,),
-                CustomElevatedButton(onPressed: (){}, title: 'SignIn', backgroundColor: Colorsmanager.whiteScreen, foregroundColor: Colorsmanager.blackScreen),
+                CustomElevatedButton(onPressed: (){}, title: 'SignIn', backgroundColor: Colorsmanager.White, foregroundColor: Colorsmanager.blackScreen),
               ],
             )
           ]),

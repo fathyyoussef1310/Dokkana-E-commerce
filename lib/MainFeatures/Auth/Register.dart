@@ -30,12 +30,12 @@ class RegisterScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Dokkan",style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                    color: Colorsmanager.whiteScreen,
+                    color: Colorsmanager.White,
                     fontSize: 40.sp,
                   ),),
                   SizedBox(height: 10.h,),
                   Text("Sign up",style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                    color: Colorsmanager.whiteScreen
+                    color: Colorsmanager.White
                   ),),
                   SizedBox(height: 30.h,),
                   Custometextforemfield(prefixIcon: CupertinoIcons.person_alt,hint: "Name", label: "Name", color: Colorsmanager.blackScreen),
@@ -48,7 +48,7 @@ class RegisterScreen extends StatelessWidget {
                   SizedBox(height: 20.h,),
                   CustomElevatedButton(onPressed: (){
                     Navigator.pushNamed(context, RoutesManager.loginScreen);
-                  }, title: "Sign Up", backgroundColor: Colorsmanager.whiteScreen, foregroundColor: Colorsmanager.blackScreen)
+                  }, title: "Sign Up", backgroundColor: Colorsmanager.White, foregroundColor: Colorsmanager.blackScreen)
                 ],
               ),
             ),
