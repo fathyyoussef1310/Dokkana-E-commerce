@@ -1,4 +1,6 @@
+import 'package:dokkanaproject/MainFeatures/Auth/Login.dart';
 import 'package:dokkanaproject/MainFeatures/Auth/Register.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/LayoutScreen.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_lets.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_next.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,10 +21,14 @@ class RoutesManager {
     switch (settings.name) {
       case registerScreen:
         return MaterialPageRoute(builder: (_) => RegisterScreen());
+      case loginScreen:
+        return MaterialPageRoute(builder: (_)=> LoginScreen());
       case onboardingNext:
         return MaterialPageRoute(builder: (_) => OnBourdingNext());
       case onboardingLets:
         return MaterialPageRoute(builder: (_) => OnBourdingLets());
+      case layoutScreen:
+        return MaterialPageRoute(builder: (_)=> LayoutScreen());
     }
   }
 }
