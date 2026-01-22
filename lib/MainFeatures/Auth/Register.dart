@@ -12,38 +12,42 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body:Container(
           width: double.infinity,
+          height: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(Imagesmanager.authImage),
               fit: BoxFit.cover,
             ),
           ),
-          child:  Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("Dokkan",style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                color: Colorsmanager.White,
-                fontSize: 40.sp,
-              ),),
-              SizedBox(height: 10.h,),
-              Text("Sign up",style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                color: Colorsmanager.White
-              ),),
-              SizedBox(height: 33.h,),
-              Custometextforemfield(prefixIcon: CupertinoIcons.person_alt,hint: "Name", label: "Name", color: Colorsmanager.blackScreen),
-              SizedBox(height: 33.h,),
-              Custometextforemfield(prefixIcon: CupertinoIcons.mail_solid,hint: "Email", label: "Email", color: Colorsmanager.blackScreen),
-              SizedBox(height: 33.h,),
-              Custometextforemfield(prefixIcon:CupertinoIcons.lock_fill,hint: "Password", label: "Password", color: Colorsmanager.blackScreen),
-              SizedBox(height: 33.h,),
-              Custometextforemfield(prefixIcon: CupertinoIcons.lock_fill,suffixIcon: CupertinoIcons.eye_slash_fill,hint: "Confirm Password", label: "ConfirmPass", color: Colorsmanager.blackScreen),
-              SizedBox(height: 29.h,),
-              CustomElevatedButton(onPressed: (){
-                Navigator.pushNamed(context, RoutesManager.loginScreen);
-              }, title: "Sign In", backgroundColor: Colorsmanager.White, foregroundColor: Colorsmanager.blackScreen)
-            ],
+          child:  Padding(
+            padding:  REdgeInsets.all(18.0),
+            child: Center(
+              child: SingleChildScrollView(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Sign up",style: Theme.of(context).textTheme.headlineLarge?.copyWith(
+                      color: Colorsmanager.White
+                    ),),
+                    SizedBox(height: 27.h,),
+                    Custometextforemfield(prefixIcon: CupertinoIcons.person_alt,hint: "Name", label: "Name", color: Colorsmanager.blackScreen),
+                    SizedBox(height: 27.h,),
+                    Custometextforemfield(prefixIcon: CupertinoIcons.mail_solid,hint: "Email", label: "Email", color: Colorsmanager.blackScreen),
+                    SizedBox(height: 27.h,),
+                    Custometextforemfield(prefixIcon:CupertinoIcons.lock_fill,hint: "Password", label: "Password", color: Colorsmanager.blackScreen),
+                    SizedBox(height: 27.h,),
+                    Custometextforemfield(prefixIcon: CupertinoIcons.lock_fill,suffixIcon: CupertinoIcons.eye_slash_fill,hint: "Confirm Password", label: "Confirm Password", color: Colorsmanager.blackScreen),
+                    SizedBox(height: 27.h,),
+                    CustomElevatedButton(onPressed: (){
+                      Navigator.pushNamed(context, RoutesManager.loginScreen);
+                    }, title: "Sign In", backgroundColor: Colorsmanager.White, foregroundColor: Colorsmanager.blackScreen)
+                  ],
+                ),
+              ),
+            ),
           )
       )
     );

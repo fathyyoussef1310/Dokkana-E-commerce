@@ -38,11 +38,11 @@ class RoutesManager {
       case layoutScreen:
         return MaterialPageRoute(builder: (_)=> LayoutScreen());
       case checkoutScreen:
-        return MaterialPageRoute(builder: (_)=> CheckoutScreen()); 
+        return MaterialPageRoute(builder: (_)=> CheckoutScreen());
       case paymentScreen:
-        return MaterialPageRoute(builder: (_)=> PaymentScreen()); 
+        return MaterialPageRoute(builder: (_)=> PaymentScreen());
       case addAddressScreen:
-        return MaterialPageRoute(builder: (_)=> AddAddressScreen()); 
+        return MaterialPageRoute(builder: (_)=> AddAddressScreen());
       case sammaryScreen:
         return MaterialPageRoute(builder: (_)=> SammaryScreen());
     }

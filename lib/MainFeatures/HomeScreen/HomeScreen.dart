@@ -1,10 +1,11 @@
 import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
-import 'package:dokkanaproject/Core/Common%20Widgets/CustomeSearchBar.dart';
-import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/OffersAlert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../Core/Common Widgets/CustomeSearchbar.dart';
+import 'OffersAlert.dart';
 
 class Homescreen extends StatefulWidget {
   const Homescreen({super.key});
@@ -63,10 +64,10 @@ class _HomescreenState extends State<Homescreen> {
               child: Padding(
                 padding:  REdgeInsets.all(3.0.r),
                 child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context,index) {
-                  return offers[index];
-                }, separatorBuilder: (context,index)=> SizedBox(width: 10.w,) , itemCount: offers.length),
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context,index) {
+                      return offers[index];
+                    }, separatorBuilder: (context,index)=> SizedBox(width: 10.w,) , itemCount: offers.length),
               ),
             )
           ],

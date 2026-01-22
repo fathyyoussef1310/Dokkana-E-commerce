@@ -126,8 +126,8 @@ class EditCart extends StatelessWidget {
                     ),
                     SizedBox(height: 20.h),
                     ElevatedButton(
-                      onPressed: () {Navigator.pushNamed(context, RoutesManager.checkoutScreen);},
-                      style: ElevatedButton.styleFrom(
+                      onPressed: () {
+                        Navigator.pushNamed(context, RoutesManager.checkoutScreen);}, style: ElevatedButton.styleFrom(
                         backgroundColor: Colorsmanager.blackScreen,
                         padding: EdgeInsets.symmetric(horizontal: 70.w,vertical: 2.h)
                       ),

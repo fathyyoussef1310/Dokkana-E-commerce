@@ -25,20 +25,16 @@ class LoginScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Dokkan",style: Theme.of(context).textTheme.headlineLarge!.copyWith(color: Colorsmanager.White,
-              fontSize: 40.sp,
-            ),),
-            SizedBox(height: 10.h,),
             Text("Sign In",style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                 color: Colorsmanager.White
             ),),
+            SizedBox(height: 30.h,),
             Custometextforemfield(prefixIcon: CupertinoIcons.mail_solid,hint: "Email", label: "Email", color: Colorsmanager.blackScreen),
-            SizedBox(height: 33.h,),
+            SizedBox(height: 30.h,),
             Custometextforemfield(prefixIcon:CupertinoIcons.lock_fill,hint: "Password", label: "Password", color: Colorsmanager.blackScreen),
             SizedBox(height: 29.h,),
             CustomElevatedButton(onPressed: (){
-              // to Layout
-              Navigator.pushNamed(context, RoutesManager.layoutScreen);
+              Navigator.pushReplacementNamed(context, RoutesManager.layoutScreen);
             }, title: "Sign In", backgroundColor: Colorsmanager.White, foregroundColor: Colorsmanager.blackScreen)
           ],
         ),
