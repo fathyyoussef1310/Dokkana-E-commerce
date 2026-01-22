@@ -12,4 +12,6 @@ abstract class Colorsmanager {
   static const Color whiteCoffee=Color(0xffEDEDED);
   static const Color transparentText=Colors.transparent;
   static const Color green=Colors.green;
+  static const Color gray=Color(0XFFF1F1F1);
+
 }

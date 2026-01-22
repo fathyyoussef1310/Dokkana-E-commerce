@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SammaryScreen extends StatelessWidget {
-  const SammaryScreen({super.key});
+class AddAddressScreen extends StatelessWidget {
+  const AddAddressScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
