@@ -9,4 +9,6 @@ class Imagesmanager {
   static const String onbourdingNextTextDec = "${begin}onbourding _next_text_des.png";
   static const String onbourdingLetsText = "${begin}onbourding _lets_text.png";
   static const String onbourdingLetsTextDec = "${begin}onbourding _lets_text_des.png";
+  static const String appbarAuthImageSpon = "${begin}AppBar,AuthShape.png";
+  static const String Shoeoffer = "${begin}ShoesImage.png";
 }

@@ -2,7 +2,6 @@ import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 class Custometextforemfield extends StatelessWidget {
   Custometextforemfield({super.key,required this.hint,required this.label,this.prefixIcon,this.suffixIcon,required this.color,this.onChanged, this.controller,this.maxLines=1,this.validator});
   String hint;
@@ -18,7 +17,7 @@ class Custometextforemfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      cursorColor: Colorsmanager.White,
+      cursorColor: Colorsmanager.coffeeCheckout,
       decoration: InputDecoration(
         label: Text(label),
         labelStyle: GoogleFonts.poppins(color: color,fontSize: 16.sp,fontWeight: FontWeight.w700),
@@ -32,7 +31,7 @@ class Custometextforemfield extends StatelessWidget {
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colorsmanager.White, width: 1.5),
+          borderSide: BorderSide(color: Colorsmanager.White, width: 1.5.w),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
@@ -47,7 +46,7 @@ class Custometextforemfield extends StatelessWidget {
           borderSide: BorderSide(color: Colors.red, width: 2),
         ),
         filled: true,
-        fillColor: Colorsmanager.White.withOpacity(0.15),
+        fillColor: Colorsmanager.White.withOpacity(0.30),
       ),
     );
   }
