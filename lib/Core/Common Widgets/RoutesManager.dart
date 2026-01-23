@@ -45,6 +45,7 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_)=> AddAddressScreen());
       case sammaryScreen:
         return MaterialPageRoute(builder: (_)=> SammaryScreen());
+
     }
   }
 }
