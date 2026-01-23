@@ -42,9 +42,8 @@ class _HomescreenState extends State<Homescreen> {
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        elevation: 0,
         centerTitle: true,
-        title: Text("Dokkan", style: GoogleFonts.inter(fontWeight: FontWeight.bold, color: Colorsmanager.blackScreen),),
+        title: Text("Dokkan", style: GoogleFonts.aboreto(fontWeight: FontWeight.bold, color: Colorsmanager.blackScreen),),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -90,8 +89,8 @@ class _HomescreenState extends State<Homescreen> {
                 physics: NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  crossAxisSpacing: 16.w,
-                  mainAxisSpacing: 16.h,
+                  crossAxisSpacing: 11.w,
+                  mainAxisSpacing: 5.h,
                   childAspectRatio: 0.7,
               ),
                   itemBuilder: (context,index){

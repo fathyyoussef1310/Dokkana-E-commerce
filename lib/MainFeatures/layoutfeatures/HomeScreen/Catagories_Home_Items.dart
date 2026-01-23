@@ -13,7 +13,7 @@ class CatagoriesHomeItems extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colorsmanager.White,
         borderRadius: BorderRadius.circular(15.r),
-        border: Border.all(color: Colorsmanager.blackScreen.withOpacity(0.1)),
+        border: Border.all(color: Colorsmanager.blackScreen.withOpacity(0.9)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +39,7 @@ class CatagoriesHomeItems extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("Nike Air Force, Gray white", style: GoogleFonts.inter(color: Colorsmanager.blackScreen, fontSize: 12.sp, fontWeight: FontWeight.bold,),
+                  Text("Nike Air Force Gray white", style: GoogleFonts.k2d(color: Colorsmanager.blackScreen, fontSize: 19.sp, fontWeight: FontWeight.w400,),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
