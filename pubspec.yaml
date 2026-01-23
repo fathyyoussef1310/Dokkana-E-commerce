@@ -13,6 +13,7 @@ dependencies:
   google_fonts: ^7.0.2
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.2.3
+  glaze_nav_bar: ^1.2.1
 
 dev_dependencies:
   flutter_test:
