@@ -1,10 +1,8 @@
-
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/Favourites/Favourites.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/ProfileScreen/ProfileScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../Core/Common Widgets/ColorsManager.dart';
 import 'HomeScreen/HomeScreen.dart';
 import 'cart/my_cart/edit_cart.dart';
@@ -37,7 +35,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
           padding:  REdgeInsets.symmetric(horizontal: 20, vertical: 10),
           decoration: BoxDecoration(
             color: Colorsmanager.blackScreen,
-            borderRadius: BorderRadius.circular(70),
+            borderRadius: BorderRadius.circular(70.r),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -45,7 +43,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
               _buildIcon(Icons.home_filled, 0),
               _buildIcon(CupertinoIcons.heart, 1),
               _buildIcon(CupertinoIcons.cart_fill, 2),
-              _buildIcon(Icons.person_pin, 3),
+              _buildIcon(CupertinoIcons.profile_circled, 3),
             ],
           ),
         ),
@@ -55,17 +53,15 @@ class _LayoutScreenState extends State<LayoutScreen> {
 
   Widget _buildIcon(IconData icon, int index) {
     final isSelected = _selectedIndex == index;
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         setState(() {
           _selectedIndex = index;
         });
       },
       child: Container(
-        padding: const EdgeInsets.all(10),
-        child: Icon(
-          icon,
-          color: isSelected ? Colorsmanager.darkpinkScreen: Colorsmanager.White,
+        padding:  REdgeInsets.all(12.r),
+        child: Icon(icon, color: isSelected ? Colorsmanager.darkpinkScreen: Colorsmanager.White,
           size: 38.sp,
         ),
       ),

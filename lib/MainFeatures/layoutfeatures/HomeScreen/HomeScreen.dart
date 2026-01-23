@@ -1,5 +1,6 @@
 import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/CustomeSearchBar.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/Catagories_Home_Items.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/OffersAlert.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,19 @@ class _HomescreenState extends State<Homescreen> {
     Offersalert(),
     Offersalert(),
     Offersalert(),
+  ];
+  List<CatagoriesHomeItems>catagories=[
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
+    CatagoriesHomeItems(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -68,7 +82,23 @@ class _HomescreenState extends State<Homescreen> {
                   return offers[index];
                 }, separatorBuilder: (context,index)=> SizedBox(width: 10.w,) , itemCount: offers.length),
               ),
-            )
+            ),
+            Padding(
+              padding: REdgeInsets.all(17.r),
+              child: GridView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 16.w,
+                  mainAxisSpacing: 16.h,
+                  childAspectRatio: 0.7,
+              ),
+                  itemBuilder: (context,index){
+                return catagories[index];
+                  },itemCount: catagories.length,),
+            ),
+            SizedBox(height: 100.h),
           ],
         ),
       ),
