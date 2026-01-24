@@ -5,6 +5,7 @@ import 'package:dokkanaproject/MainFeatures/layoutfeatures/LayoutScreen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/add_address_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/checkout_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/payment/payment_screen.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/payment_success/payment_success_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/sammary/sammary_screen.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_lets.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_next.dart';
@@ -19,6 +20,7 @@ class RoutesManager {
   static const String paymentScreen = '/paymentscreen';
   static const String addAddressScreen = '/addaddressscreem';
   static const String sammaryScreen = '/sammaryscreen';
+  static const String paymentSuccessScreen = '/paymentsuccessscreen';
   static const String loginScreen = '/login';
   static const String registerScreen = '/register';
   static const String forgetPass = '/forgetPass';
@@ -48,6 +50,8 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_)=> AddAddressScreen());
       case sammaryScreen:
         return MaterialPageRoute(builder: (_)=> SammaryScreen());
+      case paymentSuccessScreen:
+        return MaterialPageRoute(builder: (_)=> PaymentSuccessScreen());
     }
   }
 }

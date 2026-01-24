@@ -213,7 +213,9 @@ class SammaryScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 12.h),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, RoutesManager.paymentSuccessScreen);
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colorsmanager.blackScreen,
                         padding: EdgeInsets.symmetric(

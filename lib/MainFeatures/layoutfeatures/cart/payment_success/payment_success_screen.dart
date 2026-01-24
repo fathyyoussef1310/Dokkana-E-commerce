@@ -1,7 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AddAddressScreen extends StatelessWidget {
-  const AddAddressScreen({super.key});
+class PaymentSuccessScreen extends StatelessWidget {
+  const PaymentSuccessScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
