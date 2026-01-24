@@ -38,14 +38,14 @@ class PaymentScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16),
+        padding:  EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
           children: [
             SizedBox(height: 18.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset('assets/svgs/location.svg')
+                SvgPicture.asset('assets/svgs/payment.svg')
               ],
             ),
             SizedBox(height: 18.h),
@@ -121,7 +121,7 @@ class PaymentScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushReplacementNamed(
+                  Navigator.pushNamed(
                       context, RoutesManager.sammaryScreen);
                 },
                 child: Text(
