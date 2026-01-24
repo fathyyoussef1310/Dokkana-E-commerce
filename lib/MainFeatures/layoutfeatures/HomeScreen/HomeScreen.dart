@@ -1,5 +1,6 @@
 import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/CustomeSearchBar.dart';
+import 'package:dokkanaproject/Core/Common%20Widgets/ImagesManager.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/Catagories_Home_Items.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/OffersAlert.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,31 +17,28 @@ class Homescreen extends StatefulWidget {
 
 class _HomescreenState extends State<Homescreen> {
   List<Offersalert>offers=[
-    Offersalert(),
-    Offersalert(),
-    Offersalert(),
-    Offersalert(),
-    Offersalert(),
-    Offersalert(),
+    Offersalert(ImagePath: Imagesmanager.Shoeoffer, Discountpercent: '30% OFF', ValidDays: 'For 3 Days', info: 'Get Discount for Every order.',),
+    Offersalert(ImagePath: Imagesmanager.shoeitem, Discountpercent: '70% OFF', ValidDays: 'For 2 Days', info: 'Get Discount for Every order.',),
+    Offersalert(ImagePath: Imagesmanager.Shoeoffer, Discountpercent: '10% OFF', ValidDays: "Today's Special", info: 'Get Discount for Every order.',),
+    Offersalert(ImagePath: Imagesmanager.shoeitem, Discountpercent: '40% OFF', ValidDays: 'For 9 Days', info: 'Get Discount for Every order.',),
+    Offersalert(ImagePath: Imagesmanager.Shoeoffer, Discountpercent: '10% OFF', ValidDays: 'Now', info: 'Get Discount for Every order.',),
   ];
   List<CatagoriesHomeItems>catagories=[
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
-    CatagoriesHomeItems(),
+    CatagoriesHomeItems(ImagePath: Imagesmanager.shoeitem, info: "Nike AirForce Gray White",Price: '100',),
+    CatagoriesHomeItems(ImagePath: Imagesmanager.Shoeoffer,info: "Nike AirForce Black Edition",Price: '200',),
+    CatagoriesHomeItems(ImagePath: Imagesmanager.shoeitem, info: "Nike AirForce Gray White",Price: '300',),
+    CatagoriesHomeItems(ImagePath: Imagesmanager.Shoeoffer,info: "Nike AirForce Black Edition", Price: '1111',),
+    CatagoriesHomeItems(ImagePath: Imagesmanager.shoeitem, info: "Nike AirForce Gray White", Price: '900',),
+    CatagoriesHomeItems(ImagePath: Imagesmanager.Shoeoffer,info: "Nike AirForce Black Edition", Price: '1000',),
+    CatagoriesHomeItems(ImagePath: Imagesmanager.shoeitem, info: "Nike AirForce Gray White", Price: '11112',),
+    CatagoriesHomeItems(ImagePath: Imagesmanager.Shoeoffer,info: "Nike AirForce Black Edition", Price: '10009',),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
+        leading: SizedBox(height: 1,),
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         centerTitle: true,
         title: Text("Dokkan", style: GoogleFonts.aboreto(fontWeight: FontWeight.bold, color: Colorsmanager.blackScreen),),

@@ -1,5 +1,6 @@
 import 'package:dokkanaproject/MainFeatures/Auth/Login.dart';
 import 'package:dokkanaproject/MainFeatures/Auth/Register.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/Catagoredetails.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/LayoutScreen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/add_address_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/checkout_screen.dart';
@@ -7,6 +8,7 @@ import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/payment/payment_
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/sammary/sammary_screen.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_lets.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_next.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 
@@ -24,6 +26,7 @@ class RoutesManager {
   static const String layoutScreen = '/layout';
   static const String homeScreen = '/home';
   static const String favorites = '/favourites';
+  static const String CatagoriesDetailes='\Detailes';
 
   static Route<dynamic>? getRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -45,7 +48,6 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_)=> AddAddressScreen());
       case sammaryScreen:
         return MaterialPageRoute(builder: (_)=> SammaryScreen());
-
     }
   }
 }

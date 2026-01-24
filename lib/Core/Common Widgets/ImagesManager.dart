@@ -12,4 +12,5 @@ class Imagesmanager {
   static const String appbarAuthImageSpon = "${begin}AppBar,AuthShape.png";
   static const String Shoeoffer = "${begin}ShoesImage.png";
   static const String shoeitem = "${begin}Shoes2.png";
+  static const String recommandedImages = "${begin}RecommandedShoes.png";
 }

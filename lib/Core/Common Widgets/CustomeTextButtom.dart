@@ -5,12 +5,14 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color backgroundColor;
   final Color foregroundColor;
+  final IconData? PrefixIcon;
   const CustomElevatedButton({
     super.key,
     required this.onPressed,
     required this.title,
     required this.backgroundColor,
     required this.foregroundColor,
+    this.PrefixIcon,
   });
 
   @override
@@ -29,7 +31,17 @@ class CustomElevatedButton extends StatelessWidget {
           fontWeight: FontWeight.w600,
         ),
       ),
-      child: Text(title),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (PrefixIcon != null) ...[
+            Icon(PrefixIcon, color: foregroundColor),
+            SizedBox(width: 10.w),
+          ],
+          Text(title),
+        ],
+      ),
     );
   }
 }
