@@ -10,14 +10,11 @@ import 'BillRow.dart';
 import 'PaymentRow.dart';
 
 class PaymentScreen extends StatelessWidget {
-  const PaymentScreen({super.key});
-
+   PaymentScreen({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme
-          .of(context)
-          .scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -38,14 +35,14 @@ class PaymentScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding:  EdgeInsets.symmetric(horizontal: 16.w),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             SizedBox(height: 18.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset('assets/svgs/payment.svg')
+                SvgPicture.asset('assets/svgs/location.svg')
               ],
             ),
             SizedBox(height: 18.h),
@@ -60,7 +57,7 @@ class PaymentScreen extends StatelessWidget {
                   PaymentRow(
                     icon: Icons.payments_outlined,
                     text: 'Cash on Delivery (Cash/UPI)',
-                    trailing: const Icon(Icons.circle_outlined),
+                    trailing:  Icon(Icons.circle_outlined),
                   ),
                   Divider(),
                   PaymentRow(
@@ -93,8 +90,7 @@ class PaymentScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Bill Details',
+                  Text('Bill Details',
                     style: TextStyle(
                       fontSize: 16.sp,
                       fontWeight: FontWeight.w600,
@@ -109,7 +105,7 @@ class PaymentScreen extends StatelessWidget {
                 ],
               ),
             ),
-            const Spacer(),
+            Spacer(),
             SizedBox(
               width: double.infinity,
               height: 52.h,
@@ -121,8 +117,7 @@ class PaymentScreen extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(
-                      context, RoutesManager.sammaryScreen);
+                  Navigator.pushReplacementNamed(context, RoutesManager.sammaryScreen);
                 },
                 child: Text(
                   'Place order',
@@ -138,5 +133,5 @@ class PaymentScreen extends StatelessWidget {
       ),
     );
   }
-  }
+}
 
