@@ -19,7 +19,7 @@ class _LayoutScreenState extends State<LayoutScreen> {
     Homescreen(),
     FavouritesScreen(),
     EditCart(),
-    Profilescreen(),
+    ProfileScreen(),
   ];
 
   int _selectedIndex = 0;
