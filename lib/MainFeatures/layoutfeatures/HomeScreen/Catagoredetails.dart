@@ -93,7 +93,7 @@ class _CatagoredetailsState extends State<Catagoredetails> {
                             borderRadius: BorderRadius.circular(20.r),
                           ),child: Center(child: Text("Price:${widget.Price}",style: GoogleFonts.aboreto(color: Colorsmanager.blackScreen,fontSize: 20.sp,fontWeight: FontWeight.bold),)),
                         ),
-                    SizedBox(height: 5.h,),
+                    SizedBox(height: 2.h,),
                   CustomElevatedButton(onPressed: (){
                     Navigator.pushNamed(context, RoutesManager.paymentScreen);
                   }, title: "ADD TO BAG", backgroundColor: Colorsmanager.blackScreen, foregroundColor: Colorsmanager.White,PrefixIcon: CupertinoIcons.bag_badge_plus,),

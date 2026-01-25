@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
                   return RegisterScreen();
                 }
               } else {
-                return OnBourdingNext(); // Default to onboarding on error
+                return OnBourdingNext();
               }
             },
           ),
@@ -48,7 +48,6 @@ class MyApp extends StatelessWidget {
       },
     );
   }
-
   Future<bool> _checkFirstTime() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isFirstTime = prefs.getBool('isFirstTime') ?? true;
