@@ -9,8 +9,6 @@ import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/payment_success/
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/sammary/sammary_screen.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_lets.dart';
 import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_next.dart';
-import 'package:flutter/cupertino.dart';
-
 import 'package:flutter/material.dart';
 
 class RoutesManager {
@@ -18,40 +16,41 @@ class RoutesManager {
   static const String onboardingLets = '/onboardinglets';
   static const String checkoutScreen = '/checkoutscreen';
   static const String paymentScreen = '/paymentscreen';
-  static const String addAddressScreen = '/addaddressscreem';
+  static const String addAddressScreen = '/addaddressscreen';
   static const String sammaryScreen = '/sammaryscreen';
   static const String paymentSuccessScreen = '/paymentsuccessscreen';
   static const String loginScreen = '/login';
   static const String registerScreen = '/register';
-  static const String forgetPass = '/forgetPass';
-  static const String profileScreen = '/profile';
   static const String layoutScreen = '/layout';
   static const String homeScreen = '/home';
-  static const String favorites = '/favourites';
-  static const String CatagoriesDetailes='\Detailes';
+  static const String catagoriesDetails = '/details';
 
   static Route<dynamic>? getRoute(RouteSettings settings) {
     switch (settings.name) {
       case registerScreen:
-        return MaterialPageRoute(builder: (_) => RegisterScreen());
+        return MaterialPageRoute(builder: (_) => const RegisterScreen());
       case loginScreen:
-        return MaterialPageRoute(builder: (_)=> LoginScreen());
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case onboardingNext:
-        return MaterialPageRoute(builder: (_) => OnBourdingNext());
+        return MaterialPageRoute(builder: (_) => const OnBourdingNext());
       case onboardingLets:
-        return MaterialPageRoute(builder: (_) => OnBourdingLets());
+        return MaterialPageRoute(builder: (_) => const OnBourdingLets());
       case layoutScreen:
-        return MaterialPageRoute(builder: (_)=> LayoutScreen());
+      case homeScreen:
+        return MaterialPageRoute(builder: (_) => const LayoutScreen());
       case checkoutScreen:
-        return MaterialPageRoute(builder: (_)=> CheckoutScreen());
+        return MaterialPageRoute(builder: (_) => const CheckoutScreen());
       case paymentScreen:
-        return MaterialPageRoute(builder: (_)=> PaymentScreen());
+        return MaterialPageRoute(builder: (_) =>PaymentScreen());
       case addAddressScreen:
-        return MaterialPageRoute(builder: (_)=> AddAddressScreen());
+        return MaterialPageRoute(builder: (_) => const AddAddressScreen());
       case sammaryScreen:
-        return MaterialPageRoute(builder: (_)=> SammaryScreen());
+        return MaterialPageRoute(builder: (_) => const SammaryScreen());
       case paymentSuccessScreen:
-        return MaterialPageRoute(builder: (_)=> PaymentSuccessScreen());
+        return MaterialPageRoute(builder: (_) => const PaymentSuccessScreen());
+      case catagoriesDetails:
+        return MaterialPageRoute(builder: (_) => const Catagoredetails(ImagePath: '', ShoesDetailes: '', Price: '',));
     }
+    return null;
   }
 }
