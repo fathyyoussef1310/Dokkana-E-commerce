@@ -110,9 +110,24 @@ class SammaryScreen extends StatelessWidget {
               SizedBox(height: 12.h),
               ClipRRect(
                 borderRadius: BorderRadius.circular(32.r),
-                child: Image.asset(
-                  'assets/Images/map.png',
-                  width: double.infinity,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      'assets/Images/map.png',
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                    Positioned.fill(
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, RoutesManager.mapScreen);
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(height: 12.h),

@@ -2,6 +2,7 @@ import 'package:dokkanaproject/MainFeatures/Auth/Login.dart';
 import 'package:dokkanaproject/MainFeatures/Auth/Register.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/Catagoredetails.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/LayoutScreen.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/Mapping/GoogleMap.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/add_address_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/checkout_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/payment/payment_screen.dart';
@@ -24,6 +25,7 @@ class RoutesManager {
   static const String layoutScreen = '/layout';
   static const String homeScreen = '/home';
   static const String catagoriesDetails = '/details';
+  static const String mapScreen='/Map';
 
   static Route<dynamic>? getRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -50,6 +52,8 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_) => const PaymentSuccessScreen());
       case catagoriesDetails:
         return MaterialPageRoute(builder: (_) => const Catagoredetails(ImagePath: '', ShoesDetailes: '', Price: '',));
+      case mapScreen:
+        return MaterialPageRoute(builder: (_)=> MapSample());
     }
     return null;
   }
