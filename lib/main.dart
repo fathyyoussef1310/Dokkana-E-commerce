@@ -1,30 +1,37 @@
-import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/HomeScreen.dart';
-import 'package:dokkanaproject/MainFeatures/layoutfeatures/LayoutScreen.dart';
-import 'package:dokkanaproject/MainFeatures/onbourding/on_bourding_next.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart'; // 1. Added GetX import
 import 'package:shared_preferences/shared_preferences.dart';
-
+import 'Confiq/ThemeController.dart';
+import 'Confiq/ThemeManager.dart';
 import 'Core/Common Widgets/RoutesManager.dart';
 import 'MainFeatures/Auth/Register.dart';
+import 'MainFeatures/onbourding/on_bourding_next.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  Get.put(ThemeController());
+
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final themeController = Get.find<ThemeController>();
     return ScreenUtilInit(
-      designSize: Size(393, 852),
+      designSize: const Size(393, 852),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        return MaterialApp(
+        return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RoutesManager.getRoute,
-          themeMode: ThemeMode.system,
+          theme: ThemeManager.light,
+          darkTheme: ThemeManager.dark,
+          themeMode: themeController.themeMode,
           home: FutureBuilder<bool>(
             future: _checkFirstTime(),
             builder: (context, snapshot) {
@@ -33,12 +40,7 @@ class MyApp extends StatelessWidget {
                   body: Center(child: CircularProgressIndicator()),
                 );
               } else if (snapshot.hasData) {
-                bool isFirstTime = snapshot.data!;
-                if (isFirstTime) {
-                  return OnBourdingNext();
-                } else {
-                  return RegisterScreen();
-                }
+                return snapshot.data! ? OnBourdingNext() : RegisterScreen();
               } else {
                 return OnBourdingNext();
               }
@@ -48,6 +50,7 @@ class MyApp extends StatelessWidget {
       },
     );
   }
+
   Future<bool> _checkFirstTime() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool isFirstTime = prefs.getBool('isFirstTime') ?? true;

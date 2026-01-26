@@ -1,3 +1,5 @@
+import 'package:dokkanaproject/Confiq/ThemeController.dart';
+import 'package:dokkanaproject/Confiq/ThemeManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/CustomeSearchBar.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/ImagesManager.dart';
@@ -6,6 +8,8 @@ import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/OffersAler
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Homescreen extends StatefulWidget {
@@ -38,7 +42,16 @@ class _HomescreenState extends State<Homescreen> {
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        leading: SizedBox(height: 1,),
+        elevation: 0,
+        automaticallyImplyLeading: false,
+        actions: [
+          IconButton(onPressed: (){
+            Get.find<ThemeController>().toggletheme(true);
+          }, icon: Icon(CupertinoIcons.moon_circle,size: 30.sp,)),
+          IconButton(onPressed: (){
+            Get.find<ThemeController>().toggletheme(false);
+          }, icon: Icon(CupertinoIcons.light_max,size: 30.sp,))
+        ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         centerTitle: true,
         title: Text("Dokkan", style: GoogleFonts.aboreto(fontWeight: FontWeight.bold, color: Colorsmanager.blackScreen),),
