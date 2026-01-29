@@ -2,6 +2,8 @@ import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/CustomeTextButtom.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/ImagesManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/RoutesManager.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/my_cart/cart_item.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/my_cart/cart_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -95,7 +97,21 @@ class _CatagoredetailsState extends State<Catagoredetails> {
                         ),
                     SizedBox(height: 2.h,),
                   CustomElevatedButton(onPressed: (){
-                    Navigator.pushNamed(context, RoutesManager.paymentScreen);
+                    // construct cart item and add to cart
+                    double parsedPrice = 0.0;
+                    try {
+                      parsedPrice = double.parse(widget.Price.replaceAll(RegExp(r'[^0-9\.]'), ''));
+                    } catch (_) {}
+                    final cartItem = CartItem(
+                      id: DateTime.now().millisecondsSinceEpoch.toString(),
+                      title: widget.ShoesDetailes,
+                      imagePath: widget.ImagePath,
+                      size: '07',
+                      color: 'N/A',
+                      price: parsedPrice,
+                    );
+                    CartService.instance.addItem(cartItem);
+                    Navigator.pushNamed(context, RoutesManager.editCart);
                   }, title: "ADD TO BAG", backgroundColor: Colorsmanager.blackScreen, foregroundColor: Colorsmanager.White,PrefixIcon: CupertinoIcons.bag_badge_plus,),
                   ],
                ),

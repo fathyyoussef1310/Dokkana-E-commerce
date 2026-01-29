@@ -2,16 +2,25 @@ import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'cart_item.dart';
+import 'cart_service.dart';
 
 class CartItemWidget extends StatefulWidget {
-  const CartItemWidget({super.key});
+  final CartItem item;
+  const CartItemWidget({super.key, required this.item});
 
   @override
   State<CartItemWidget> createState() => _CartItemWidgetState();
 }
 
 class _CartItemWidgetState extends State<CartItemWidget> {
-  int count = 1;
+  late int count;
+
+  @override
+  void initState() {
+    super.initState();
+    count = widget.item.quantity;
+  }
 
   Widget circleButton({required IconData icon, required VoidCallback onTap}) {
     return InkWell(
@@ -38,9 +47,10 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 borderRadius: BorderRadius.circular(14.r),
               ),
               child: Image.asset(
-                'assets/Images/yezzy.png',
+                widget.item.imagePath,
                 width: 100.w,
                 height: 100.h,
+                errorBuilder: (_, __, ___) => SizedBox(width: 100.w, height: 100.h),
               ),
             ),
             SizedBox(width: 10.w),
@@ -57,19 +67,18 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Adidas Yeezy SPLY 350 Sneakers',
+                    widget.item.title,
                     style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w600),
                   ),
                   Text(
-                    'size:07 |color: OLISTR',
+                    'size:${widget.item.size} | color: ${widget.item.color}',
                     style: TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w300),
                   ),
-                  Text('\$200.00', style: TextStyle(fontWeight: FontWeight.w500)),
+                  Text('\$${widget.item.price.toStringAsFixed(2)}', style: TextStyle(fontWeight: FontWeight.w500)),
                 ],
               ),
             ),
             SizedBox(width: 10.w),
-        
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -79,6 +88,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   onTap: () {
                     if (count > 1) {
                       setState(() => count--);
+                      CartService.instance.updateQuantity(widget.item.id, count);
                     }
                   },
                 ),
@@ -98,6 +108,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   icon: Icons.add,
                   onTap: () {
                     setState(() => count++);
+                    CartService.instance.updateQuantity(widget.item.id, count);
                   },
                 ),
               ],

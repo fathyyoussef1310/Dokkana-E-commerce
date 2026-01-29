@@ -5,6 +5,7 @@ import 'package:dokkanaproject/MainFeatures/layoutfeatures/LayoutScreen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/Mapping/GoogleMap.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/add_address_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/checkout_screen.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/my_cart/edit_cart.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/payment/payment_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/payment_success/payment_success_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/sammary/sammary_screen.dart';
@@ -15,6 +16,7 @@ import 'package:flutter/material.dart';
 class RoutesManager {
   static const String onboardingNext = '/onboardingnext';
   static const String onboardingLets = '/onboardinglets';
+  static const String editCart = '/editcart';
   static const String checkoutScreen = '/checkoutscreen';
   static const String paymentScreen = '/paymentscreen';
   static const String addAddressScreen = '/addaddressscreen';
@@ -54,6 +56,8 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_) => const Catagoredetails(ImagePath: '', ShoesDetailes: '', Price: '',));
       case mapScreen:
         return MaterialPageRoute(builder: (_)=> MapSample());
+      case editCart:
+        return MaterialPageRoute(builder: (_)=> EditCart());
     }
     return null;
   }
