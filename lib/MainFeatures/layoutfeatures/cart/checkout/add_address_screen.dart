@@ -1,5 +1,6 @@
 import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:flutter/material.dart';
+import '../../../../Core/Common Widgets/RoutesManager.dart';
 
 class AddAddressScreen extends StatelessWidget {
   const AddAddressScreen({super.key});
@@ -7,7 +8,7 @@ class AddAddressScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colorsmanager.lightcoffeeScreen,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         title: const Text("Add new addresses"),
         centerTitle: true,
@@ -48,17 +49,27 @@ class AddAddressScreen extends StatelessWidget {
               width: double.infinity,
               height: 55,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    RoutesManager.checkoutScreen,
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colorsmanager.blackScreen,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
                 ),
-                child: const Text("Save",
-                    style: TextStyle(color: Colorsmanager.White, fontSize: 16)),
+                child: const Text(
+                  "Save",
+                  style: TextStyle(
+                    color: Colorsmanager.White,
+                    fontSize: 16,
+                  ),
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),

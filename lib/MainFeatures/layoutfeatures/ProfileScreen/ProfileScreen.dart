@@ -8,8 +8,9 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colorsmanager.whiteCoffee,
       appBar: AppBar(
-        backgroundColor: Colorsmanager.lightcoffeeScreen,
+        backgroundColor: Colorsmanager.coffeeCheckout,
         centerTitle: true,
         title: const Text("Profile"),
       ),

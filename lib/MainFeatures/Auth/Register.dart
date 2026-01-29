@@ -30,10 +30,11 @@ class RegisterScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text("Sign up",style: Theme.of(context).textTheme.headlineLarge?.copyWith(
-                      color: Colorsmanager.White
+                      color: Colorsmanager.White,
+                      fontSize: 30.sp,
                     ),),
                     SizedBox(height: 27.h,),
-                    Custometextforemfield(prefixIcon: CupertinoIcons.person_alt,hint: "Name", label: "Name", color: Colorsmanager.blackScreen),
+                    Custometextforemfield(prefixIcon: CupertinoIcons.person_alt,hint: "Last Name", label: "Name", color: Colorsmanager.blackScreen),
                     SizedBox(height: 27.h,),
                     Custometextforemfield(prefixIcon: CupertinoIcons.mail_solid,hint: "Email", label: "Email", color: Colorsmanager.blackScreen),
                     SizedBox(height: 27.h,),
