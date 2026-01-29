@@ -1,6 +1,8 @@
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/Favourites/FavouritesManager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart'; // 1. Added GetX import
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Confiq/ThemeController.dart';
 import 'Confiq/ThemeManager.dart';
@@ -21,33 +23,38 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeController = Get.find<ThemeController>();
-    return ScreenUtilInit(
-      designSize: const Size(393, 852),
-      minTextAdapt: true,
-      splitScreenMode: true,
-      builder: (context, child) {
-        return GetMaterialApp(
-          debugShowCheckedModeBanner: false,
-          onGenerateRoute: RoutesManager.getRoute,
-          theme: ThemeManager.light,
-          darkTheme: ThemeManager.dark,
-          themeMode: themeController.themeMode,
-          home: FutureBuilder<bool>(
-            future: _checkFirstTime(),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
-                return const Scaffold(
-                  body: Center(child: CircularProgressIndicator()),
-                );
-              } else if (snapshot.hasData) {
-                return snapshot.data! ? OnBourdingNext() : RegisterScreen();
-              } else {
-                return OnBourdingNext();
-              }
-            },
-          ),
-        );
-      },
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_)=> Favouritesmanager())
+      ],
+      child: ScreenUtilInit(
+        designSize: const Size(393, 852),
+        minTextAdapt: true,
+        splitScreenMode: true,
+        builder: (context, child) {
+          return GetMaterialApp(
+            debugShowCheckedModeBanner: false,
+            onGenerateRoute: RoutesManager.getRoute,
+            theme: ThemeManager.light,
+            darkTheme: ThemeManager.dark,
+            themeMode: themeController.themeMode,
+            home: FutureBuilder<bool>(
+              future: _checkFirstTime(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return const Scaffold(
+                    body: Center(child: CircularProgressIndicator()),
+                  );
+                } else if (snapshot.hasData) {
+                  return snapshot.data! ? OnBourdingNext() : RegisterScreen();
+                } else {
+                  return OnBourdingNext();
+                }
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 

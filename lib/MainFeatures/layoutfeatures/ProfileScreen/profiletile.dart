@@ -21,8 +21,7 @@ class ProfileTile extends StatelessWidget {
     return ListTile(
       leading: Icon(icon, color: color),
       title: Text(title, style: TextStyle(color: color)),
-      trailing: value != null
-          ? Text(value!, style: const TextStyle(color: Colors.grey))
+      trailing: value != null ? Text(value!, style: const TextStyle(color: Colors.grey))
           : const Icon(Icons.arrow_forward_ios, size: 16),
       onTap: onTap,
     );
