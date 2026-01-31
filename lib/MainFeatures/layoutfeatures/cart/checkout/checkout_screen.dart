@@ -20,63 +20,65 @@ class CheckoutScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 26.w),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 18.h,),
-            Row(mainAxisAlignment: MainAxisAlignment.center,children: [SvgPicture.asset('assets/svgs/location.svg')],),
-            SizedBox(height: 18.h,),
-            Text(
-              'Shipping Address',
-              style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
-            ),
-            SizedBox(height: 20.h),
-            Text(
-              'Default Address',
-              style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w300),
-            ),
-            SizedBox(height: 20.h),
-            AddressWidgit(),
-            SizedBox(height: 20.h),
-            InkWell(
-              onTap: (){Navigator.pushNamed(context, RoutesManager.addAddressScreen);},
-              child: Row(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 26.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 18.h,),
+              Row(mainAxisAlignment: MainAxisAlignment.center,children: [SvgPicture.asset('assets/svgs/location.svg')],),
+              SizedBox(height: 18.h,),
+              Text(
+                'Shipping Address',
+                style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
+              ),
+              SizedBox(height: 20.h),
+              Text(
+                'Default Address',
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w300),
+              ),
+              SizedBox(height: 20.h),
+              AddressWidgit(),
+              SizedBox(height: 20.h),
+              InkWell(
+                onTap: (){Navigator.pushNamed(context, RoutesManager.addAddressScreen);},
+                child: Row(
+                  children: [
+                    SvgPicture.asset('assets/svgs/add.svg'),
+                    SizedBox(width: 8.w),
+                    Text('Add new addresses'),
+                  ],
+                ),
+              ),
+              SizedBox(height: 200.h,),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset('assets/svgs/add.svg'),
-                  SizedBox(width: 8.w),
-                  Text('Add new addresses'),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, RoutesManager.paymentScreen);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colorsmanager.blackScreen,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 70.w,
+                        vertical: 2.h,
+                      ),
+                    ),
+                    child: Text(
+                      'Continue',
+                      style: TextStyle(
+                        fontSize: 15.sp,
+                        fontWeight: FontWeight.w500,
+                        color: Colorsmanager.White,
+                      ),
+                    ),
+                  ),
                 ],
               ),
-            ),
-            SizedBox(height: 200.h,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, RoutesManager.paymentScreen);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colorsmanager.blackScreen,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 70.w,
-                      vertical: 2.h,
-                    ),
-                  ),
-                  child: Text(
-                    'Continue',
-                    style: TextStyle(
-                      fontSize: 15.sp,
-                      fontWeight: FontWeight.w500,
-                      color: Colorsmanager.White,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

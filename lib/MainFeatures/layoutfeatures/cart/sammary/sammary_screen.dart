@@ -1,5 +1,7 @@
 import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/RoutesManager.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/my_cart/cart_item.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/my_cart/cart_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -122,7 +124,10 @@ class SammaryScreen extends StatelessWidget {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, RoutesManager.mapScreen);
+                            Navigator.pushNamed(
+                              context,
+                              RoutesManager.mapScreen,
+                            );
                           },
                         ),
                       ),
@@ -186,69 +191,86 @@ class SammaryScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 12.h),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
-                decoration: BoxDecoration(
-                  color: Colorsmanager.darkGray,
-                  borderRadius: BorderRadius.circular(32.r),
-                ),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              ValueListenableBuilder<List<CartItem>>(
+                valueListenable: CartService.instance.items,
+                builder: (context, items, _) {
+                  final subtotal = items.fold<double>(
+                    0.0,
+                    (prev, e) => prev + e.price * e.quantity,
+                  );
+                  final shipping = items.isNotEmpty ? 60.0 : 0.0;
+                  final total = subtotal + shipping;
+                  return Container(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 32.w,
+                      vertical: 16.h,
+                    ),
+                    decoration: BoxDecoration(
+                      color: Colorsmanager.darkGray,
+                      borderRadius: BorderRadius.circular(32.r),
+                    ),
+                    child: Column(
                       children: [
-                        Text('Subtotal'),
-                        SizedBox(width: 8.w),
-                        Text('\$1240'),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('Subtotal'),
+                            SizedBox(width: 8.w),
+                            Text('\$${subtotal.toStringAsFixed(2)}'),
+                          ],
+                        ),
+                        SizedBox(height: 20.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text('Shopping'),
+                            SizedBox(width: 8.w),
+                            Text('\$${shipping.toStringAsFixed(2)}'),
+                          ],
+                        ),
+                        SizedBox(height: 20.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Total Cost',
+                              style: TextStyle(fontWeight: FontWeight.w700),
+                            ),
+                            SizedBox(width: 8.w),
+                            Text(
+                              '\$${total.toStringAsFixed(2)}',
+                              style: TextStyle(fontWeight: FontWeight.w700),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 12.h),
+                        ElevatedButton(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              RoutesManager.paymentSuccessScreen,
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colorsmanager.blackScreen,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 70.w,
+                              vertical: 2.h,
+                            ),
+                          ),
+                          child: Text(
+                            'Check Out',
+                            style: TextStyle(
+                              fontSize: 15.sp,
+                              fontWeight: FontWeight.w500,
+                              color: Colorsmanager.White,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
-                    SizedBox(height: 20.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text('Shopping'),
-                        SizedBox(width: 8.w),
-                        Text('\$60'),
-                      ],
-                    ),
-                    SizedBox(height: 20.h),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Total Cost',
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(width: 8.w),
-                        Text(
-                          '\$1690',
-                          style: TextStyle(fontWeight: FontWeight.w700),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 12.h),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, RoutesManager.paymentSuccessScreen);
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colorsmanager.blackScreen,
-                        padding: EdgeInsets.symmetric(
-                          horizontal: 70.w,
-                          vertical: 2.h,
-                        ),
-                      ),
-                      child: Text(
-                        'Check Out',
-                        style: TextStyle(
-                          fontSize: 15.sp,
-                          fontWeight: FontWeight.w500,
-                          color: Colorsmanager.White,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
             ],
           ),
