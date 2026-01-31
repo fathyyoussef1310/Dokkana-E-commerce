@@ -43,7 +43,7 @@ class RegisterScreen extends StatelessWidget {
                     Custometextforemfield(prefixIcon: CupertinoIcons.lock_fill,suffixIcon: CupertinoIcons.eye_slash_fill,hint: "Confirm Password", label: "Confirm Password", color: Colorsmanager.blackScreen),
                     SizedBox(height: 27.h,),
                     CustomElevatedButton(onPressed: (){
-                      Navigator.pushNamed(context, RoutesManager.loginScreen);
+                      Navigator.pushNamed(context, RoutesManager.otp);
                     }, title: "Sign In", backgroundColor: Colorsmanager.White, foregroundColor: Colorsmanager.blackScreen)
                   ],
                 ),

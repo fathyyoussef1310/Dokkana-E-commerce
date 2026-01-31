@@ -1,4 +1,4 @@
-import 'package:dokkanaproject/Confiq/ThemeController.dart';
+import 'package:dokkanaproject/Controllers/ThemeController.dart';
 import 'package:dokkanaproject/Confiq/ThemeManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/CustomeSearchBar.dart';

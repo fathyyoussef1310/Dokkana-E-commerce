@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart'; // 1. Added GetX import
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'Confiq/ThemeController.dart';
+import 'Controllers/ThemeController.dart';
 import 'Confiq/ThemeManager.dart';
 import 'Core/Common Widgets/RoutesManager.dart';
 import 'MainFeatures/Auth/Register.dart';

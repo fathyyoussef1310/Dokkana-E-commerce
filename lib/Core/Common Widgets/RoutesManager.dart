@@ -1,4 +1,5 @@
 import 'package:dokkanaproject/MainFeatures/Auth/Login.dart';
+import 'package:dokkanaproject/MainFeatures/Auth/OTPPage.dart';
 import 'package:dokkanaproject/MainFeatures/Auth/Register.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/Catagoredetails.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/LayoutScreen.dart';
@@ -28,7 +29,8 @@ class RoutesManager {
   static const String homeScreen = '/home';
   static const String catagoriesDetails = '/details';
   static const String mapScreen='/Map';
-
+  static const String offers='/offers';
+  static const String otp = '/Otp';
   static Route<dynamic>? getRoute(RouteSettings settings) {
     switch (settings.name) {
       case registerScreen:
@@ -58,6 +60,8 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_)=> MapSample());
       case editCart:
         return MaterialPageRoute(builder: (_)=> EditCart());
+      case  otp:
+        return MaterialPageRoute(builder: (_)=> Otppage());
     }
     return null;
   }

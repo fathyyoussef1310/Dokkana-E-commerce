@@ -1,4 +1,5 @@
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/Favourites/Favourites.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/OffersScreen/OffersScreen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/ProfileScreen/ProfileScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class LayoutScreen extends StatefulWidget {
 class _LayoutScreenState extends State<LayoutScreen> {
   final List<Widget> _tabs = [
     Homescreen(),
+    Offersscreen(),
     FavouritesScreen(),
     EditCart(),
     ProfileScreen(),
@@ -32,18 +34,19 @@ class _LayoutScreenState extends State<LayoutScreen> {
       bottomNavigationBar: Padding(
         padding:  REdgeInsets.all(20.0),
         child: Container(
-          padding:  REdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding:  REdgeInsets.symmetric(horizontal: 18, vertical: 9),
           decoration: BoxDecoration(
             color: Colorsmanager.blackScreen,
-            borderRadius: BorderRadius.circular(70.r),
+            borderRadius: BorderRadius.circular(60.r),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               _buildIcon(Icons.home_filled, 0),
-              _buildIcon(CupertinoIcons.heart, 1),
-              _buildIcon(CupertinoIcons.cart_fill, 2),
-              _buildIcon(CupertinoIcons.profile_circled, 3),
+              _buildIcon(Icons.local_offer_outlined, 1),
+              _buildIcon(CupertinoIcons.heart, 2),
+              _buildIcon(CupertinoIcons.cart_fill, 3),
+              _buildIcon(CupertinoIcons.profile_circled, 4),
             ],
           ),
         ),

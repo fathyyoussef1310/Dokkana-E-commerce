@@ -1,19 +1,20 @@
 import 'package:flutter/foundation.dart';
 import 'cart_item.dart';
-
 class CartService {
   CartService._private();
   static final CartService instance = CartService._private();
-
   final ValueNotifier<List<CartItem>> items = ValueNotifier<List<CartItem>>([]);
-
-  void addItem(CartItem item) {
+  void addItem(CartItem item)
+  {
     final list = List<CartItem>.from(items.value);
     final index = list.indexWhere((e) => e.id == item.id);
-    if (index >= 0) {
+    if (index >= 0)
+    {
       final existing = list[index];
       list[index] = existing.copyWith(quantity: existing.quantity + item.quantity);
-    } else {
+    }
+    else
+    {
       list.add(item);
     }
     items.value = list;
@@ -31,12 +32,10 @@ class CartService {
       items.value = list;
     }
   }
-
   void removeItem(String id) {
     final list = List<CartItem>.from(items.value)..removeWhere((e) => e.id == id);
     items.value = list;
   }
-
   void clear() {
     items.value = [];
   }

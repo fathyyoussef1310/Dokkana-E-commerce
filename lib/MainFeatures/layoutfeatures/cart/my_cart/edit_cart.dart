@@ -67,7 +67,6 @@ class EditCart extends StatelessWidget {
                   final subtotal = items.fold<double>(0.0, (prev, e) => prev + e.price * e.quantity);
                   final shipping = items.isNotEmpty ? 60.0 : 0.0;
                   final total = subtotal + shipping;
-
                   return Container(
                     // sum sheet
                     width: double.infinity,
