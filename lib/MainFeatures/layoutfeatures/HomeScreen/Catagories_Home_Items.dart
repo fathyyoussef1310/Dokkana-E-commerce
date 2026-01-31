@@ -10,8 +10,13 @@ import 'package:provider/provider.dart';
 import '../../../Core/Common Widgets/ImagesManager.dart';
 
 class CatagoriesHomeItems extends StatefulWidget {
-  const CatagoriesHomeItems({super.key,required this.ImagePath, required this.info, required this.Price});
-  final  String ImagePath;
+  const CatagoriesHomeItems({
+    super.key,
+    required this.ImagePath,
+    required this.info,
+    required this.Price,
+  });
+  final String ImagePath;
   final String info;
   final String Price;
   @override
@@ -19,12 +24,22 @@ class CatagoriesHomeItems extends StatefulWidget {
 }
 
 class _CatagoriesHomeItemsState extends State<CatagoriesHomeItems> {
-  bool isSelected=false;
+  bool isSelected = false;
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-        Navigator.push(context, CupertinoPageRoute(builder: (_) => Catagoredetails(ImagePath: widget.ImagePath, ShoesDetailes: widget.info, Price: widget.Price,)) as Route<Object?>);
+      onTap: () {
+        Navigator.push(
+          context,
+          CupertinoPageRoute(
+                builder: (_) => Catagoredetails(
+                  ImagePath: widget.ImagePath,
+                  ShoesDetailes: widget.info,
+                  Price: widget.Price,
+                ),
+              )
+              as Route<Object?>,
+        );
       },
       child: Container(
         decoration: BoxDecoration(
@@ -44,25 +59,41 @@ class _CatagoriesHomeItemsState extends State<CatagoriesHomeItems> {
                     height: double.infinity,
                     decoration: BoxDecoration(
                       color: Colorsmanager.gray,
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(15.r)),
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(15.r),
+                      ),
                     ),
                     child: Padding(
                       padding: EdgeInsets.all(8.r),
-                      child: Image.asset(widget.ImagePath, fit: BoxFit.contain,
-                      ),
+                      child: Image.asset(widget.ImagePath, fit: BoxFit.contain),
                     ),
                   ),
                   Positioned(
                     top: 0,
                     right: 0,
-                    child: IconButton(onPressed: () {
-                      setState(() {
-                        isSelected=!isSelected;
-                      });
-                      final provider=Provider.of<Favouritesmanager>(context,listen: false);
-                      provider.toggleData(widget.ImagePath, widget.info, widget.Price);
-                    }, icon: Icon(isSelected ? CupertinoIcons.heart_fill : CupertinoIcons.heart,
-                      color: isSelected ? Colors.orange : Colorsmanager.blackScreen,),
+                    child: IconButton(
+                      onPressed: () {
+                        setState(() {
+                          isSelected = !isSelected;
+                        });
+                        final provider = Provider.of<Favouritesmanager>(
+                          context,
+                          listen: false,
+                        );
+                        provider.toggleData(
+                          widget.ImagePath,
+                          widget.info,
+                          widget.Price,
+                        );
+                      },
+                      icon: Icon(
+                        isSelected
+                            ? CupertinoIcons.heart_fill
+                            : CupertinoIcons.heart,
+                        color: isSelected
+                            ? Colors.orange
+                            : Colorsmanager.blackScreen,
+                      ),
                     ),
                   ),
                 ],
@@ -75,17 +106,29 @@ class _CatagoriesHomeItemsState extends State<CatagoriesHomeItems> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(widget.info, style: GoogleFonts.k2d(color: Colorsmanager.blackScreen, fontSize: 19.sp, fontWeight: FontWeight.w400,),
+                    Text(
+                      widget.info,
+                      style: GoogleFonts.k2d(
+                        color: Colorsmanager.blackScreen,
+                        fontSize: 19.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                     const Spacer(),
-                    Text("EGP:${widget.Price}", style: GoogleFonts.inter(color: Colorsmanager.blackScreen, fontSize: 14.sp, fontWeight: FontWeight.w900,),
+                    Text(
+                      "EGP:${widget.Price}",
+                      style: GoogleFonts.inter(
+                        color: Colorsmanager.blackScreen,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w900,
+                      ),
                     ),
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
