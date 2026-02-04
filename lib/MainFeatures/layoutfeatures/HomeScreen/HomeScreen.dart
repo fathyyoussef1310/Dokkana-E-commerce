@@ -3,6 +3,7 @@ import 'package:dokkanaproject/Confiq/ThemeManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/CustomeSearchBar.dart';
 import 'package:dokkanaproject/Core/Common%20Widgets/ImagesManager.dart';
+import 'package:dokkanaproject/Core/Common%20Widgets/RoutesManager.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/Catagories_Home_Items.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/OffersAlert.dart';
 import 'package:flutter/cupertino.dart';
@@ -37,6 +38,7 @@ class _HomescreenState extends State<Homescreen> {
     CatagoriesHomeItems(ImagePath: Imagesmanager.shoeitem, info: "Nike AirForce Gray White", Price: '11112',),
     CatagoriesHomeItems(ImagePath: Imagesmanager.Shoeoffer,info: "Nike AirForce Black Edition", Price: '10009',),
   ];
+  bool isDark=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,10 +49,10 @@ class _HomescreenState extends State<Homescreen> {
         actions: [
           IconButton(onPressed: (){
             Get.find<ThemeController>().toggletheme(true);
-          }, icon: Icon(CupertinoIcons.moon_circle,size: 30.sp,)),
+          }, icon: Icon(isDark? CupertinoIcons.moon_circle: CupertinoIcons.moon_circle_fill,size: 30.sp,color:Colorsmanager.blackScreen,)),
           IconButton(onPressed: (){
             Get.find<ThemeController>().toggletheme(false);
-          }, icon: Icon(CupertinoIcons.light_max,size: 30.sp,))
+          }, icon: Icon(CupertinoIcons.light_max,size: 30.sp,color: isDark?Colorsmanager.blackScreen:Colorsmanager.gold,))
         ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         centerTitle: true,
@@ -77,7 +79,9 @@ class _HomescreenState extends State<Homescreen> {
                 ),
                 Padding(
                   padding: REdgeInsets.all(12.0.sp),
-                  child: Text("See More", style: GoogleFonts.khula(color: Colorsmanager.blackScreen, fontWeight: FontWeight.bold, fontSize: 14.sp),
+                  child: TextButton(onPressed: (){
+                    Navigator.pushNamed(context, RoutesManager.offers);
+                  }, child: Text("See More",style:GoogleFonts.khula(color: Colorsmanager.blackScreen,fontSize: 16.sp,fontWeight: FontWeight.w400,))
                   ),
                 ),
               ],

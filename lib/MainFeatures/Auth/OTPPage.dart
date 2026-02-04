@@ -57,7 +57,10 @@ class _OtppageState extends State<Otppage> {
             },
           pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
           showCursor: true,
-          onCompleted: (pin) => ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Correct Otp",style: GoogleFonts.aboreto(color: Colorsmanager.White),),backgroundColor: Colorsmanager.green,)),
+          onCompleted: (pin) =>
+              ScaffoldMessenger.of(context).showSnackBar
+                (SnackBar(content: Text("Correct Otp",style: GoogleFonts.aboreto(color: Colorsmanager.White),),
+                backgroundColor: Colorsmanager.green,)),
         ),
             SizedBox(height: 10.h,),
             CustomElevatedButton(onPressed: (){

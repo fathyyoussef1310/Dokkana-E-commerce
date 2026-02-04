@@ -10,11 +10,11 @@ class FavouritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<Favouritesmanager>(context);
-    final favitems = provider.items;
-
+    final provider =Provider.of<Favouritesmanager>(context);
+    final favitems=provider.items;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text("My Favorites", style: GoogleFonts.aboreto(fontWeight: FontWeight.bold)),
         centerTitle: true,
         elevation: 0,
@@ -22,12 +22,8 @@ class FavouritesScreen extends StatelessWidget {
         foregroundColor: Colorsmanager.blackScreen,
       ),
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: favitems.isEmpty
-          ? Center(
-        child: Text(
-          "Please add favorites first",
-          style: GoogleFonts.k2d(fontSize: 18.sp, color: Colors.grey),
-        ),
+      body: favitems.isEmpty ? Center(
+        child: Text("Please add favorites first", style: GoogleFonts.k2d(fontSize: 18.sp, color: Colors.grey),),
       )
           : ListView.separated(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
@@ -61,7 +57,7 @@ class FavouritesScreen extends StatelessWidget {
               trailing: IconButton(
                 icon: Icon(Icons.delete_outline, color: Colorsmanager.red),
                 onPressed: () {
-                  provider.toggleData(
+                  provider.toggelData(
                     favitems[index]["image"]!,
                     favitems[index]["info"]!,
                     favitems[index]["Price"]!,

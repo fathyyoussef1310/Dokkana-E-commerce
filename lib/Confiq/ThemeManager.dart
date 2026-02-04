@@ -18,7 +18,7 @@ abstract class ThemeManager {
   static final ThemeData dark = ThemeData(
     useMaterial3: true,
     brightness: Brightness.dark,
-    scaffoldBackgroundColor: Colorsmanager.blackScreen,
+    scaffoldBackgroundColor: Colorsmanager.darkiestgrey,
     primaryColor: Colorsmanager.blackScreen,
     primaryColorLight: Colorsmanager.White,
     primaryColorDark: Colorsmanager.darkGray,

@@ -1,7 +1,7 @@
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/Favourites/FavouritesManager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart'; // 1. Added GetX import
+import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'Controllers/ThemeController.dart';
@@ -9,7 +9,6 @@ import 'Confiq/ThemeManager.dart';
 import 'Core/Common Widgets/RoutesManager.dart';
 import 'MainFeatures/Auth/Register.dart';
 import 'MainFeatures/onbourding/on_bourding_next.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Get.put(ThemeController());

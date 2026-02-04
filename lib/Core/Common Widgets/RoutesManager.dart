@@ -3,6 +3,7 @@ import 'package:dokkanaproject/MainFeatures/Auth/OTPPage.dart';
 import 'package:dokkanaproject/MainFeatures/Auth/Register.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/HomeScreen/Catagoredetails.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/LayoutScreen.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/OffersScreen/OffersScreen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/Mapping/GoogleMap.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/add_address_screen.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/checkout_screen.dart';
@@ -62,6 +63,8 @@ class RoutesManager {
         return MaterialPageRoute(builder: (_)=> EditCart());
       case  otp:
         return MaterialPageRoute(builder: (_)=> Otppage());
+      case offers:
+        return MaterialPageRoute(builder: (_)=> Offersscreen());
     }
     return null;
   }
