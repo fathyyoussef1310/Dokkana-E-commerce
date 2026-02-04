@@ -9,16 +9,79 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SammaryScreen extends StatelessWidget {
   const SammaryScreen({super.key});
 
+  Widget paymentWidget(String? paymentMethod) {
+    if (paymentMethod == "cash") {
+      return Row(
+        children: [
+          Icon(Icons.money, size: 40),
+          SizedBox(width: 10),
+          Text(
+            "Cash",
+            style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500),
+          ),
+        ],
+      );
+    }
+
+    if (paymentMethod == "card") {
+      return Row(
+        children: [
+          Icon(Icons.credit_card, size: 40),
+          SizedBox(width: 10),
+          Text(
+            "Card",
+            style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500),
+          ),
+        ],
+      );
+    }
+
+    if (paymentMethod == "bank") {
+      return Row(
+        children: [
+          Icon(Icons.account_balance, size: 40),
+          SizedBox(width: 10),
+          Text(
+            "Bank",
+            style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500),
+          ),
+        ],
+      );
+    }
+
+
+    return Row(
+      children: [
+        Image.asset('assets/Images/paypal_logo.png', width: 40.w),
+        SizedBox(width: 10.w),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              paymentMethod == "paypal" ? "Paypal Card" : "Unknown",
+              style: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500),
+            ),
+            Text(
+              paymentMethod == "paypal" ? "**** **** 0696 4629" : "",
+              style: TextStyle(fontSize: 10.sp, color: Color(0xffAEAEAE)),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final paymentMethod =
+    ModalRoute.of(context)!.settings.arguments as String?;
+
     return Scaffold(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
         automaticallyImplyLeading: false,
         surfaceTintColor: Colors.transparent,
-        backgroundColor: Theme.of(
-          context,
-        ).scaffoldBackgroundColor, // Keep consistent color
+        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         title: Center(
           child: Text(
             'Checkout',
@@ -27,7 +90,6 @@ class SammaryScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        margin: EdgeInsets.only(top: 0.h),
         decoration: BoxDecoration(
           color: Colorsmanager.gray,
           borderRadius: BorderRadius.only(
@@ -49,10 +111,8 @@ class SammaryScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Contact Information',
-                      style: TextStyle(fontWeight: FontWeight.w500),
-                    ),
+                    Text('Contact Information',
+                        style: TextStyle(fontWeight: FontWeight.w500)),
                     SizedBox(height: 20.h),
                     Row(
                       children: [
@@ -61,17 +121,12 @@ class SammaryScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Steve Harrington@gmail.com',
-                              style: TextStyle(fontSize: 13.sp),
-                            ),
-                            Text(
-                              'Email',
-                              style: TextStyle(
-                                fontSize: 10.sp,
-                                color: const Color.fromARGB(255, 174, 174, 174),
-                              ),
-                            ),
+                            Text('Steve Harrington@gmail.com',
+                                style: TextStyle(fontSize: 13.sp)),
+                            Text('Email',
+                                style: TextStyle(
+                                    fontSize: 10.sp,
+                                    color: Color(0xffAEAEAE))),
                           ],
                         ),
                       ],
@@ -84,17 +139,12 @@ class SammaryScreen extends StatelessWidget {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              '+917025793482',
-                              style: TextStyle(fontSize: 13.sp),
-                            ),
-                            Text(
-                              'Phone',
-                              style: TextStyle(
-                                fontSize: 10.sp,
-                                color: const Color.fromARGB(255, 174, 174, 174),
-                              ),
-                            ),
+                            Text('+917025793482',
+                                style: TextStyle(fontSize: 13.sp)),
+                            Text('Phone',
+                                style: TextStyle(
+                                    fontSize: 10.sp,
+                                    color: Color(0xffAEAEAE))),
                           ],
                         ),
                       ],
@@ -107,7 +157,8 @@ class SammaryScreen extends StatelessWidget {
               SizedBox(height: 4.h),
               Text(
                 'bcg vantage, 5t, London, 12908-UK',
-                style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w300),
+                style:
+                TextStyle(fontSize: 12.sp, fontWeight: FontWeight.w300),
               ),
               SizedBox(height: 12.h),
               ClipRRect(
@@ -145,47 +196,12 @@ class SammaryScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Payment Method',
-                      style: TextStyle(fontWeight: FontWeight.w500),
-                    ),
+                    Text('Payment Method',
+                        style: TextStyle(fontWeight: FontWeight.w500)),
                     SizedBox(height: 12.h),
                     Padding(
                       padding: EdgeInsets.only(left: 14.w),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            'assets/Images/paypal_logo.png',
-                            width: 40.w,
-                          ),
-                          SizedBox(width: 10.w),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Paypal Card',
-                                style: TextStyle(
-                                  fontSize: 13.sp,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              SizedBox(height: 6.h),
-                              Text(
-                                '**** **** 0696 4629',
-                                style: TextStyle(
-                                  fontSize: 10.sp,
-                                  color: const Color.fromARGB(
-                                    255,
-                                    174,
-                                    174,
-                                    174,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                      child: paymentWidget(paymentMethod),
                     ),
                   ],
                 ),
@@ -196,15 +212,14 @@ class SammaryScreen extends StatelessWidget {
                 builder: (context, items, _) {
                   final subtotal = items.fold<double>(
                     0.0,
-                    (prev, e) => prev + e.price * e.quantity,
+                        (prev, e) => prev + e.price * e.quantity,
                   );
                   final shipping = items.isNotEmpty ? 60.0 : 0.0;
                   final total = subtotal + shipping;
+
                   return Container(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 32.w,
-                      vertical: 16.h,
-                    ),
+                    padding:
+                    EdgeInsets.symmetric(horizontal: 32.w, vertical: 16.h),
                     decoration: BoxDecoration(
                       color: Colorsmanager.darkGray,
                       borderRadius: BorderRadius.circular(32.r),
@@ -215,7 +230,6 @@ class SammaryScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text('Subtotal'),
-                            SizedBox(width: 8.w),
                             Text('\$${subtotal.toStringAsFixed(2)}'),
                           ],
                         ),
@@ -224,7 +238,6 @@ class SammaryScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text('Shopping'),
-                            SizedBox(width: 8.w),
                             Text('\$${shipping.toStringAsFixed(2)}'),
                           ],
                         ),
@@ -236,7 +249,6 @@ class SammaryScreen extends StatelessWidget {
                               'Total Cost',
                               style: TextStyle(fontWeight: FontWeight.w700),
                             ),
-                            SizedBox(width: 8.w),
                             Text(
                               '\$${total.toStringAsFixed(2)}',
                               style: TextStyle(fontWeight: FontWeight.w700),
@@ -254,9 +266,7 @@ class SammaryScreen extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colorsmanager.blackScreen,
                             padding: EdgeInsets.symmetric(
-                              horizontal: 70.w,
-                              vertical: 2.h,
-                            ),
+                                horizontal: 70.w, vertical: 2.h),
                           ),
                           child: Text(
                             'Check Out',

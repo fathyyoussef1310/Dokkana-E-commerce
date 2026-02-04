@@ -1,9 +1,25 @@
-import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
+import 'package:dokkanaproject/Core/Common Widgets/ColorsManager.dart';
 import 'package:flutter/material.dart';
 import '../../../../Core/Common Widgets/RoutesManager.dart';
+import 'package:dokkanaproject/models/address_model.dart';
 
-class AddAddressScreen extends StatelessWidget {
+class AddAddressScreen extends StatefulWidget {
   const AddAddressScreen({super.key});
+
+  @override
+  State<AddAddressScreen> createState() => _AddAddressScreenState();
+}
+
+class _AddAddressScreenState extends State<AddAddressScreen> {
+  bool isDefault = false;
+
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController phoneController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
+  final TextEditingController pinController = TextEditingController();
+  final TextEditingController townController = TextEditingController();
+  final TextEditingController districtController = TextEditingController();
+  final TextEditingController stateController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,27 +36,34 @@ class AddAddressScreen extends StatelessWidget {
         padding: const EdgeInsets.all(20),
         child: Column(
           children: [
-            _input("Name"),
-            _input("Mobile No"),
-            _input("Address"),
+            _input("Name", nameController),
+            _input("Mobile No", phoneController),
+            _input("Address", addressController),
             Row(
               children: [
-                Expanded(child: _input("Pin Code")),
+                Expanded(child: _input("Pin Code", pinController)),
                 const SizedBox(width: 12),
-                Expanded(child: _input("Town")),
+                Expanded(child: _input("Town", townController)),
               ],
             ),
             Row(
               children: [
-                Expanded(child: _input("District")),
+                Expanded(child: _input("District", districtController)),
                 const SizedBox(width: 12),
-                Expanded(child: _input("State")),
+                Expanded(child: _input("State", stateController)),
               ],
             ),
             const SizedBox(height: 10),
             Row(
               children: [
-                Checkbox(value: false, onChanged: (_) {}),
+                Checkbox(
+                  value: isDefault,
+                  onChanged: (value) {
+                    setState(() {
+                      isDefault = value!;
+                    });
+                  },
+                ),
                 const Text("Make this my default addresses"),
               ],
             ),
@@ -50,10 +73,18 @@ class AddAddressScreen extends StatelessWidget {
               height: 55,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(
-                    context,
-                    RoutesManager.checkoutScreen,
+                  final address = AddressModel(
+                    name: nameController.text,
+                    phone: phoneController.text,
+                    address: addressController.text,
+                    pinCode: pinController.text,
+                    town: townController.text,
+                    district: districtController.text,
+                    state: stateController.text,
+                    isDefault: isDefault,
                   );
+
+                  Navigator.pop(context, address);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colorsmanager.blackScreen,
@@ -76,10 +107,11 @@ class AddAddressScreen extends StatelessWidget {
     );
   }
 
-  Widget _input(String hint) {
+  Widget _input(String hint, TextEditingController controller) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 12),
       child: TextField(
+        controller: controller,
         decoration: InputDecoration(
           hintText: hint,
           filled: true,

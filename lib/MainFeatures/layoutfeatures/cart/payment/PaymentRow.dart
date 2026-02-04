@@ -5,30 +5,35 @@ class PaymentRow extends StatelessWidget {
   final IconData icon;
   final String text;
   final Widget trailing;
+  final VoidCallback? onTap;
 
   const PaymentRow({
     super.key,
     required this.icon,
     required this.text,
     required this.trailing,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 12.h),
-      child: Row(
-        children: [
-          Icon(icon, size: 22),
-          SizedBox(width: 12.w),
-          Expanded(
-            child: Text(
-              text,
-              style: TextStyle(fontSize: 14.sp),
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 12.h),
+        child: Row(
+          children: [
+            Icon(icon, size: 22),
+            SizedBox(width: 12.w),
+            Expanded(
+              child: Text(
+                text,
+                style: TextStyle(fontSize: 14.sp),
+              ),
             ),
-          ),
-          trailing,
-        ],
+            trailing,
+          ],
+        ),
       ),
     );
   }

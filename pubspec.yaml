@@ -15,6 +15,7 @@ dependencies:
   flutter_svg: ^2.2.3
   glaze_nav_bar: ^1.2.1
   shared_preferences: ^2.5.4
+  image_picker: ^1.0.7
   get: ^4.7.3
   google_maps_flutter: ^2.14.0
   google_maps_flutter_android: ^2.18.9
@@ -55,3 +56,6 @@ flutter_launcher_icons:
   macos:
     generate: true
     image_path: "assets/Icons/LuncherIcon.png"
+    dependencies:
+      image_picker: ^1.0.7
+      shared_preferences: ^2.2.2

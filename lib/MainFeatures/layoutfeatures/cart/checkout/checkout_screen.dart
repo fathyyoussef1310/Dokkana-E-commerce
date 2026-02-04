@@ -1,12 +1,20 @@
-import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
-import 'package:dokkanaproject/Core/Common%20Widgets/RoutesManager.dart';
+import 'package:dokkanaproject/Core/Common Widgets/ColorsManager.dart';
+import 'package:dokkanaproject/Core/Common Widgets/RoutesManager.dart';
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/cart/checkout/address_widgit.dart';
+import 'package:dokkanaproject/models/address_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class CheckoutScreen extends StatelessWidget {
+class CheckoutScreen extends StatefulWidget {
   const CheckoutScreen({super.key});
+
+  @override
+  State<CheckoutScreen> createState() => _CheckoutScreenState();
+}
+
+class _CheckoutScreenState extends State<CheckoutScreen> {
+  AddressModel? address;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +34,14 @@ class CheckoutScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 18.h,),
-              Row(mainAxisAlignment: MainAxisAlignment.center,children: [SvgPicture.asset('assets/svgs/location.svg')],),
-              SizedBox(height: 18.h,),
+              SizedBox(height: 18.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset('assets/svgs/location.svg'),
+                ],
+              ),
+              SizedBox(height: 18.h),
               Text(
                 'Shipping Address',
                 style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
@@ -39,25 +52,72 @@ class CheckoutScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w300),
               ),
               SizedBox(height: 20.h),
-              AddressWidgit(),
+
+              if (address != null)
+                AddressWidgit(
+                  address: address!,
+                  onRemove: () {
+                    setState(() {
+                      address = null;
+                    });
+                  },
+                  onEdit: () async {
+                    final result = await Navigator.pushNamed(
+                      context,
+                      RoutesManager.addAddressScreen,
+                    );
+
+                    if (result != null) {
+                      setState(() {
+                        address = result as AddressModel;
+                      });
+                    }
+                  },
+                ),
+
               SizedBox(height: 20.h),
+
               InkWell(
-                onTap: (){Navigator.pushNamed(context, RoutesManager.addAddressScreen);},
+                onTap: () async {
+                  final result = await Navigator.pushNamed(
+                    context,
+                    RoutesManager.addAddressScreen,
+                  );
+
+                  if (result != null) {
+                    setState(() {
+                      address = result as AddressModel;
+                    });
+                  }
+                },
                 child: Row(
                   children: [
                     SvgPicture.asset('assets/svgs/add.svg'),
                     SizedBox(width: 8.w),
-                    Text('Add new addresses'),
+                    const Text('Add new addresses'),
                   ],
                 ),
               ),
-              SizedBox(height: 200.h,),
+
+              SizedBox(height: 200.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pushNamed(context, RoutesManager.paymentScreen);
+                      if (address == null) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Please add address first"),
+                          ),
+                        );
+                        return;
+                      }
+
+                      Navigator.pushNamed(
+                        context,
+                        RoutesManager.paymentScreen,
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colorsmanager.blackScreen,

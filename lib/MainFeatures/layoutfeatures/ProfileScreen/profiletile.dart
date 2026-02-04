@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProfileTile extends StatelessWidget {
   final IconData icon;
   final String title;
-  final String? value;
+  final Widget? trailingChild;
   final Color color;
   final VoidCallback? onTap;
 
@@ -11,7 +11,7 @@ class ProfileTile extends StatelessWidget {
     super.key,
     required this.icon,
     required this.title,
-    this.value,
+    this.trailingChild,
     this.color = Colors.black,
     this.onTap,
   });
@@ -19,10 +19,10 @@ class ProfileTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
+      contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 1),
       leading: Icon(icon, color: color),
       title: Text(title, style: TextStyle(color: color)),
-      trailing: value != null ? Text(value!, style: const TextStyle(color: Colors.grey))
-          : const Icon(Icons.arrow_forward_ios, size: 16),
+      trailing: trailingChild ?? const Icon(Icons.arrow_forward_ios, size: 16),
       onTap: onTap,
     );
   }
