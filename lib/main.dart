@@ -1,4 +1,5 @@
 import 'package:dokkanaproject/MainFeatures/layoutfeatures/Favourites/FavouritesManager.dart';
+import 'package:dokkanaproject/MainFeatures/layoutfeatures/LayoutScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
                     body: Center(child: CircularProgressIndicator()),
                   );
                 } else if (snapshot.hasData) {
-                  return snapshot.data! ? OnBourdingNext() : RegisterScreen();
+                  return snapshot.data! ? OnBourdingNext() : LayoutScreen();
                 } else {
                   return OnBourdingNext();
                 }

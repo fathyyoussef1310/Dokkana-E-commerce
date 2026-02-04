@@ -12,7 +12,7 @@ class ProfileTile extends StatelessWidget {
     required this.icon,
     required this.title,
     this.trailingChild,
-    this.color = Colors.black,
+    required this.color,
     this.onTap,
   });
 

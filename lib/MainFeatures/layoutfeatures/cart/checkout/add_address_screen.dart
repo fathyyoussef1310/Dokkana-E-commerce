@@ -28,9 +28,10 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
       appBar: AppBar(
         title: const Text("Add new addresses"),
         centerTitle: true,
-        backgroundColor: Colorsmanager.White,
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
         elevation: 0,
-        foregroundColor: Colorsmanager.blackScreen,
+        
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
@@ -57,6 +58,8 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
             Row(
               children: [
                 Checkbox(
+                  activeColor: Theme.of(context).secondaryHeaderColor,
+                  checkColor: Colorsmanager.blackScreen,
                   value: isDefault,
                   onChanged: (value) {
                     setState(() {
@@ -87,7 +90,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
                   Navigator.pop(context, address);
                 },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colorsmanager.blackScreen,
+                  backgroundColor: Theme.of(context).primaryColorDark,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(30),
                   ),
@@ -115,7 +118,7 @@ class _AddAddressScreenState extends State<AddAddressScreen> {
         decoration: InputDecoration(
           hintText: hint,
           filled: true,
-          fillColor: const Color(0xffF2F2F2),
+          fillColor: Theme.of(context).primaryColor,
           contentPadding:
           const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
           border: OutlineInputBorder(

@@ -21,6 +21,8 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.transparent,
         title: Center(
           child: Text(
             'Checkout',
@@ -38,7 +40,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SvgPicture.asset('assets/svgs/location.svg'),
+                  SvgPicture.asset('assets/svgs/location.svg',color: Theme.of(context).secondaryHeaderColor,),
                 ],
               ),
               SizedBox(height: 18.h),
@@ -92,7 +94,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                 },
                 child: Row(
                   children: [
-                    SvgPicture.asset('assets/svgs/add.svg'),
+                    SvgPicture.asset('assets/svgs/add.svg',color: Theme.of(context).secondaryHeaderColor,),
                     SizedBox(width: 8.w),
                     const Text('Add new addresses'),
                   ],
@@ -120,7 +122,7 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colorsmanager.blackScreen,
+                      backgroundColor: Theme.of(context).primaryColorDark,
                       padding: EdgeInsets.symmetric(
                         horizontal: 70.w,
                         vertical: 2.h,

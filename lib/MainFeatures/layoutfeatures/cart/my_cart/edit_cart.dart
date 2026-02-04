@@ -13,7 +13,7 @@ class EditCart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      
       appBar: AppBar(
         surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.transparent,
@@ -23,7 +23,7 @@ class EditCart extends StatelessWidget {
             SizedBox(width: 130.w),
             Text(
               'My Cart',
-              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.w400),
+              
             ),
           ],
         ),
@@ -42,7 +42,7 @@ class EditCart extends StatelessWidget {
               margin: EdgeInsets.only(top: 20.h),
               width: double.infinity,
               decoration: BoxDecoration(
-                color: Colorsmanager.gray,
+                color: Theme.of(context).scaffoldBackgroundColor,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(32.r),
                   topRight: Radius.circular(32.r),
@@ -78,7 +78,7 @@ class EditCart extends StatelessWidget {
                         width: double.infinity,
                         height: MediaQuery.of(context).size.height / 2.3,
                         decoration: BoxDecoration(
-                          color: Colorsmanager.coffeeCheckout,
+                          color: Theme.of(context).secondaryHeaderColor,
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(32.r),
                             topRight: Radius.circular(32.r),
@@ -165,7 +165,7 @@ class EditCart extends StatelessWidget {
                                   );
                                 },
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colorsmanager.blackScreen,
+                                  backgroundColor: Theme.of(context).primaryColorDark,
                                   padding: EdgeInsets.symmetric(
                                     horizontal: 70.w,
                                     vertical: 2.h,

@@ -1,3 +1,4 @@
+import 'package:dokkanaproject/Core/Common%20Widgets/ColorsManager.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -105,7 +106,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   );
 
                 },
-                child: Text('Place order'),
+                child: Text('Place order',style: TextStyle(color: Colorsmanager.White),),
               ),
             ),
           ],

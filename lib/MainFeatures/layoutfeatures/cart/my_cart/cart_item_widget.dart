@@ -28,7 +28,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
       onTap: onTap,
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 6.h),
-        decoration: BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+        decoration: BoxDecoration(color: Theme.of(context).primaryColor, shape: BoxShape.circle),
         child: Icon(icon, size: 16.sp, color: Colors.black),
       ),
     );
@@ -43,7 +43,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
           children: [
             Container(
               decoration: BoxDecoration(
-                color: Colorsmanager.White,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(14.r),
               ),
               child: Image.asset(
@@ -59,7 +59,7 @@ class _CartItemWidgetState extends State<CartItemWidget> {
               height: 100.h,
               width: 200.w,
               decoration: BoxDecoration(
-                color: Colorsmanager.White,
+                color: Theme.of(context).primaryColor,
                 borderRadius: BorderRadius.circular(14.r),
               ),
               child: Column(

@@ -45,9 +45,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
       await prefs.setString("image", _image!.path);
     }
 
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text("Saved Successfully")),
-    );
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(const SnackBar(content: Text("Saved Successfully")));
   }
 
   Future pickImage() async {
@@ -69,9 +69,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colorsmanager.White,
       appBar: AppBar(
-        backgroundColor: Colorsmanager.White,
+        backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
         centerTitle: true,
         title: const Text("Profile"),
       ),
@@ -86,13 +86,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 radius: 45,
                 backgroundImage: _image != null
                     ? FileImage(_image!)
-                    : const AssetImage('assets/Images/1x/avatar (1).png') as ImageProvider,
+                    : const AssetImage('assets/Images/1x/avatar (1).png')
+                          as ImageProvider,
               ),
             ),
 
             const SizedBox(height: 20),
 
             ProfileTile(
+              color: Theme.of(context).primaryColorLight,
               icon: Icons.person_outlined,
               title: "Name",
               trailingChild: SizedBox(
@@ -110,6 +112,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
 
             ProfileTile(
+              color: Theme.of(context).primaryColorLight,
               icon: Icons.email_outlined,
               title: "Email",
               trailingChild: SizedBox(
@@ -126,25 +129,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
 
-            ProfileTile(
-              icon: Icons.settings_outlined,
-              title: "Settings",
-            ),
+            ProfileTile(color: Theme.of(context).primaryColorLight,icon: Icons.settings_outlined, title: "Settings"),
 
-            ProfileTile(
-              icon: Icons.language,
-              title: "Language",
-            ),
+            ProfileTile(color: Theme.of(context).primaryColorLight,icon: Icons.language, title: "Language"),
 
-            ProfileTile(
+            ProfileTile(color: Theme.of(context).primaryColorLight,
               icon: Icons.verified_user_outlined,
               title: "Two-Step Verification",
             ),
 
-            ProfileTile(
-              icon: Icons.edit_outlined,
-              title: "Edit Profile",
-            ),
+            ProfileTile(color: Theme.of(context).primaryColorLight,icon: Icons.edit_outlined, title: "Edit Profile"),
 
             ProfileTile(
               icon: Icons.logout,
@@ -160,10 +154,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
             const SizedBox(height: 20),
 
-            ElevatedButton(
-              onPressed: saveData,
-              child: const Text("Save"),
-            ),
+            ElevatedButton(onPressed: saveData, child: const Text("Save")),
 
             const SizedBox(height: 20),
           ],
