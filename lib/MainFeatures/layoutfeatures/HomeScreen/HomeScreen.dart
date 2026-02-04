@@ -56,7 +56,7 @@ class _HomescreenState extends State<Homescreen> {
         ],
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         centerTitle: true,
-        title: Text("Dokkan", style: GoogleFonts.aboreto(fontWeight: FontWeight.bold, color: Colorsmanager.blackScreen),),
+        title: Text("Dokkan", style: GoogleFonts.aboreto(fontWeight: FontWeight.bold, color: Theme.of(context).primaryColorLight),),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -75,13 +75,13 @@ class _HomescreenState extends State<Homescreen> {
               children: [
                 Padding(
                   padding: REdgeInsets.all(12.0.sp),
-                  child: Text("Special Offers", style: GoogleFonts.khula(color: Colorsmanager.blackScreen, fontWeight: FontWeight.bold, fontSize: 18.sp),),
+                  child: Text("Special Offers", style: GoogleFonts.khula(color: Theme.of(context).primaryColorLight, fontWeight: FontWeight.bold, fontSize: 18.sp),),
                 ),
                 Padding(
                   padding: REdgeInsets.all(12.0.sp),
                   child: TextButton(onPressed: (){
                     Navigator.pushNamed(context, RoutesManager.offers);
-                  }, child: Text("See More",style:GoogleFonts.khula(color: Colorsmanager.blackScreen,fontSize: 16.sp,fontWeight: FontWeight.w400,))
+                  }, child: Text("See More",style:GoogleFonts.khula(color: Theme.of(context).primaryColorLight,fontSize: 16.sp,fontWeight: FontWeight.w400,))
                   ),
                 ),
               ],
