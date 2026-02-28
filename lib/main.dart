@@ -41,13 +41,17 @@ class MyApp extends StatelessWidget {
             home: FutureBuilder<bool>(
               future: _checkFirstTime(),
               builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
+                if (snapshot.connectionState == ConnectionState.waiting)
+                {
                   return const Scaffold(
                     body: Center(child: CircularProgressIndicator()),
                   );
-                } else if (snapshot.hasData) {
+                } else if (snapshot.hasData)
+                {
                   return snapshot.data! ? OnBourdingNext() : LayoutScreen();
-                } else {
+                }
+                else
+                {
                   return OnBourdingNext();
                 }
               },

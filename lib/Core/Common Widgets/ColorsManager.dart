@@ -1,8 +1,6 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
-
 abstract class Colorsmanager {
-  /////Colors Of Screen
   static const Color White=Color(0xffFFFFFF);
   static const Color lightcoffeeScreen=Color(0xffDFAE95);
   static const Color blackScreen=Color(0xff000000);

@@ -12,22 +12,16 @@ class ProfileScreen extends StatefulWidget {
   @override
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
-
 class _ProfileScreenState extends State<ProfileScreen> {
   File? _image;
   final picker = ImagePicker();
-
   final nameController = TextEditingController();
   final emailController = TextEditingController();
-
   Future loadData() async {
     final prefs = await SharedPreferences.getInstance();
-
     nameController.text = prefs.getString("name") ?? "";
     emailController.text = prefs.getString("email") ?? "";
-
     String? imagePath = prefs.getString("image");
-
     if (imagePath != null) {
       setState(() {
         _image = File(imagePath);
@@ -52,7 +46,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   Future pickImage() async {
     final picked = await picker.pickImage(source: ImageSource.gallery);
-
     if (picked != null) {
       setState(() {
         _image = File(picked.path);
@@ -79,7 +72,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Column(
           children: [
             const SizedBox(height: 20),
-
             GestureDetector(
               onTap: pickImage,
               child: CircleAvatar(

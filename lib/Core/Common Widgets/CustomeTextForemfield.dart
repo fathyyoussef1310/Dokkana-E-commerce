@@ -20,22 +20,22 @@ class Custometextforemfield extends StatelessWidget {
       cursorColor: Colorsmanager.coffeeCheckout,
       decoration: InputDecoration(
         label: Text(label),
-        labelStyle: GoogleFonts.poppins(color: color,fontSize: 16.sp,fontWeight: FontWeight.w700),
+        labelStyle: GoogleFonts.poppins(color: Colorsmanager.darkGray,fontSize: 16.sp,fontWeight: FontWeight.w700),
         hintText: hint,
-        hintStyle: GoogleFonts.poppins(color: Colorsmanager.blackScreen,fontSize: 16.sp,fontWeight: FontWeight.w700),
+        hintStyle: GoogleFonts.poppins(color: Colorsmanager.whiteCoffee,fontSize: 16.sp,fontWeight: FontWeight.w700),
         suffixIcon: suffixIcon!=null ? Icon(suffixIcon,color: color,) : null,
         prefixIcon: prefixIcon!=null ? Icon(prefixIcon,color: color,) : null,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.r),
+          borderRadius: BorderRadius.circular(75.r),
           borderSide: BorderSide(color: Colorsmanager.whiteCoffee),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colorsmanager.White, width: 1.5.w),
+          borderRadius: BorderRadius.circular(75.r),
+          borderSide: BorderSide(color: Colorsmanager.transparentText, width: 1.5.w),
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(12.r),
-          borderSide: BorderSide(color: Colorsmanager.blackScreen, width: 2),
+          borderRadius: BorderRadius.circular(75.r),
+          borderSide: BorderSide(color: Colorsmanager.whiteCoffee, width: 2),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12.r),
