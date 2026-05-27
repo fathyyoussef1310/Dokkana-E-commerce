@@ -35,7 +35,7 @@ class RoutesManager {
   static Route<dynamic>? getRoute(RouteSettings settings) {
     switch (settings.name) {
       case registerScreen:
-        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+        return MaterialPageRoute(builder: (_) =>  RegisterScreen());
       case loginScreen:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       case onboardingNext:
