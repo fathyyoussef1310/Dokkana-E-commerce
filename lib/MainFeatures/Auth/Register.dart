@@ -96,7 +96,7 @@ class RegisterScreen extends StatelessWidget {
                       }
                       return CustomElevatedButton(
                         onPressed: () {
-                          if(passwordController.text != ConfirmPasswordController.text){
+                          if( passwordController.text != ConfirmPasswordController.text){
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 backgroundColor: Colorsmanager.red,
@@ -106,7 +106,7 @@ class RegisterScreen extends StatelessWidget {
                                 ),
                               ),
                             );
-                            return;
+                            return ;
                           }
                           context.read<AuthCubit>().register(
                             usernameController.text,
